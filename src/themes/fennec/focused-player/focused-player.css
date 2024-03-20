@@ -1,0 +1,28 @@
+.focused-player {
+	position: fixed;
+	bottom: var(--viewport-margin-bottom);
+	left: calc((100% - var(--focused-player-width)) / 2);
+	right: calc((100% - var(--focused-player-width)) / 2);
+
+	display: grid;
+	grid-template-columns: 16fr 35fr 16fr;
+
+	filter: var(--filter-drop-shadow);
+}
+
+.focused-player.--has-overlay-bottom {
+	bottom: var(--focused-player-margin-bottom-with-overlay-bottom);
+}
+.iframe {
+	position: absolute;
+	left: calc((100% - 320px) / 2);
+	right: calc((100% - 320px) / 2);
+	top: calc((100% - 357px));
+	display: block;
+	/* grid-template-columns: 35fr ; */
+	/* position: absolute; */
+	/* display: none; */
+	/* top: 100; */
+	/* left: 100;  */
+	/* display: none; */
+}
