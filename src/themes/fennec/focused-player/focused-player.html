@@ -1,0 +1,63 @@
+<Transition mode="out-in">
+	<div v-if="isActive":class="['focused-player', { '--has-overlay-bottom': !! overlayBottomImageUrl }]">
+			<FocusedPlayerHealthAndArmor />
+			<FocusedPlayerNameAndStats />
+			<FocusedPlayerAmmo />
+	</div>
+	
+	<div v-else-if="$round.isFreezetime" class="freezetime-placeholder"></div>
+</Transition>
+<!-- <Transition mode="out-in"> -->
+
+	<div class="iframe" id="p1">
+		<p>player 1</p>
+		<iframe src="http://localhost:8889/mystream/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p2">
+		<p>player 2</p>
+		<iframe src="http://localhost:8889/mystream/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p3">
+		<p>player 3</p>
+		<iframe src="http://localhost:8889/mystream/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p4">
+		<p>player 4</p>
+		<iframe src="http://localhost:8889/mystream/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p5">
+		<p>player 5</p>
+		<iframe src="http://localhost:8889/mystream/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p6">
+		<p>player 6</p>
+		<iframe src="http://localhost:8889/mystream/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p7">
+		<p>player 7</p>
+		<iframe src="http://localhost:8889/mystream/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p8">
+		<p>player 8</p>
+		<iframe src="http://localhost:8889/mystream/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p9">
+		<p>player 9</p>
+		<iframe src="http://localhost:8889/mystream/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p0">
+		<p>player 10</p>
+		<iframe src="http://localhost:8889/mystream/?controls=0" scrolling="no" allow="autoplay" width="320px" height="240">
+		</iframe>	
+	</div>
+<!-- </Transition> -->
+	
