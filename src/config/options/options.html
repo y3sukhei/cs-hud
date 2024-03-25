@@ -22,7 +22,75 @@
 
 <Update />
 
+
+<h2 style="margin: 50px;">
+		Cameras
+</h2>
+
+<div style="display: grid; grid-template-columns: 10fr 10fr 10fr 10fr 10fr; margin: 50px;">
+
+	<div class="iframe" id="p1">
+		<select v-model="selected">
+			<option v-for="option in options" :value="option.value">
+			  {{ option.text }}
+			</option>
+		  </select>
+		<iframe src="http://localhost:8889/mystream1/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+
+	<div class="iframe" id="p2">
+		<input type="number" placeholder="player 2" style="width: auto;"/>
+		<iframe src="http://localhost:8889/mystream2/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p3">
+		<input type="number" placeholder="player 3" style="width: auto;"/>
+		<iframe src="http://localhost:8889/mystream3/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p4">
+		<input type="number" placeholder="player 4" style="width: auto;"/>
+		<iframe src="http://localhost:8889/mystrea4/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p5">
+		<input type="number" placeholder="player 5" style="width: auto;"/>
+		<iframe src="http://localhost:8889/mystream5/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p6">
+		<input type="number" placeholder="player 6" style="width: auto;"/>
+		<iframe src="http://localhost:8889/mystream6/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p7">
+		<input type="number" placeholder="player 7" style="width: auto;"/>
+		<iframe src="http://localhost:8889/mystream7/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p8">
+		<input type="number" placeholder="player 8" style="width: auto;"/>
+		<iframe src="http://localhost:8889/mystream8/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p9">
+		<input type="number" placeholder="player 9" style="width: auto;"/>
+		<iframe src="http://localhost:8889/mystream9/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+	<div class="iframe" id="p0">
+		<input type="number" placeholder="player 0" style="width: auto;"/>
+		<iframe src="http://localhost:8889/mystream0/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
+		</iframe>	
+	</div>
+
+</div>
+
+
+
 <section v-for="section of sections" :id="section.name">
+	
 	<header>
 		<h2>{{ section.name }}</h2>
 
@@ -30,6 +98,8 @@
 			{{ section.description }}
 		</p>
 	</header>
+
+	
 
 	<div v-for="option of section.options" class="input-group">
 		<label :for="option.key">

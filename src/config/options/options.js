@@ -4,18 +4,37 @@ export default {
 	components: {
 		Update,
 	},
+	
 
 	data() {
 		return {
+			options : [
+				{ text: 'One', value: 'A' },
+				{ text: 'Two', value: 'B' },
+				{ text: 'Three', value: 'C' }
+			  ],  
+			selected : 'A',
 			initialTheme: null,
 			optionValues: {},
 			sections: [],
+			players: [],
+			cameras: [
+				{ slot:1,url:"http://localhost:8889/mystream1/?controls=0" },
+				{ slot:2,url:"http://localhost:8889/mystream2/?controls=0" },
+				{ slot:3,url:"http://localhost:8889/mystream3/?controls=0" },
+				{ slot:4,url:"http://localhost:8889/mystream4/?controls=0" },
+				{ slot:5,url:"http://localhost:8889/mystream5/?controls=0" },
+				{ slot:6,url:"http://localhost:8889/mystream6/?controls=0" },
+				{ slot:7,url:"http://localhost:8889/mystream7/?controls=0" },
+				{ slot:8,url:"http://localhost:8889/mystream8/?controls=0" },
+				{ slot:9,url:"http://localhost:8889/mystream9/?controls=0" },
+				{ slot:0,url:"http://localhost:8889/mystream0/?controls=0" },
+		    ]
 		}
 	},
-
 	mounted() {
 		document.addEventListener('keydown', this.onKeydown)
-		this.initOptions()
+		this.initOptions()	
 	},
 
 	beforeUnmount() {

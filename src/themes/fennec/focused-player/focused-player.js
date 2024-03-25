@@ -12,11 +12,25 @@ export default {
 	data() {
 		return {
 			overlayBottomImageUrl: null,
+		
+			cameras: {
+				1:"10.136.28.191",
+				2:"10.136.28.192",
+				3:"10.136.28.193",
+				4:"10.136.28.194",
+				5:"10.136.28.195",
+				6:"10.136.28.196",
+				7:"10.136.28.197",
+				8:"10.136.28.198",
+				9:"10.136.28.199",
+				0:"10.136.28.190",		
+		 }
 		}
 	},
 
 	mounted() {
 		this.setOverlayBottomImageUrl()
+		console.log("cameras 1 :", this.cameras[1]);
 		// if (! this.$round.isFreezetime && this.$players.focused) {
 		// 	this.showPanel("p"+this.$players.focused.observerSlot);
 		// }
