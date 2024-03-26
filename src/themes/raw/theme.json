@@ -1,5 +1,22 @@
 {
 	"options": {
+		"playerCameras" : {
+			"type" : "array",
+			"section": "player cameras",
+			"fallback":
+			[
+				{ "slot":null,"url":"http://localhost:8889/mystream1/?controls=0" },
+				{ "slot":null,"url":"http://localhost:8889/mystream2/?controls=0" },
+				{ "slot":null,"url":"http://localhost:8889/mystream3/?controls=0" },
+				{ "slot":null,"url":"http://localhost:8889/mystream4/?controls=0" },
+				{  "slot":null,"url":"http://localhost:8889/mystream5/?controls=0" },
+				{  "slot":null,"url":"http://localhost:8889/mystream6/?controls=0" },
+				{  "slot":null,"url":"http://localhost:8889/mystream7/?controls=0" },
+				{  "slot":null,"url":"http://localhost:8889/mystream8/?controls=0" },
+				{  "slot":null,"url":"http://localhost:8889/mystream9/?controls=0" },
+				{  "slot":null,"url":"http://localhost:8889/mystream0/?controls=0" }
+			]
+		},
 		"preferences.isCsgo": {
 			"type": "boolean",
 			"section": "Preferences",

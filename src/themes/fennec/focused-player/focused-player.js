@@ -12,28 +12,23 @@ export default {
 	data() {
 		return {
 			overlayBottomImageUrl: null,
+			playerCameras:null
 		
-			cameras: {
-				1:"10.136.28.191",
-				2:"10.136.28.192",
-				3:"10.136.28.193",
-				4:"10.136.28.194",
-				5:"10.136.28.195",
-				6:"10.136.28.196",
-				7:"10.136.28.197",
-				8:"10.136.28.198",
-				9:"10.136.28.199",
-				0:"10.136.28.190",		
-		 }
 		}
+	},
+	beforeMount() {
+	
+		this.playerCameras = this.$opts['playerCameras'].sort(({slot:a}, {slot:b}) => a-b);
+		console.log("player Cameras :",this.playerCameras);
+	
 	},
 
 	mounted() {
 		this.setOverlayBottomImageUrl()
-		console.log("cameras 1 :", this.cameras[1]);
-		// if (! this.$round.isFreezetime && this.$players.focused) {
-		// 	this.showPanel("p"+this.$players.focused.observerSlot);
-		// }
+		
+		if (! this.$round.isFreezetime && this.$players.focused.observerSlot == this.playerCameras[this.$players.focused.observerSlot-1].slot) {
+			this.showPanel("p"+this.$players.focused.observerSlot);
+		}
 	},
 
 	computed: {		
@@ -45,8 +40,8 @@ export default {
 	},
 	watch :{
 		isActive() {
-			if (!this.$round.isFreezetime && this.$players.focused) {
-
+			if (!this.$round.isFreezetime && this.$players.focused.observerSlot == this.playerCameras[this.$players.focused.observerSlot-1].slot) {
+				console.log("slot", this.$players.focused.observerSlot)
 				this.showPanel("p"+this.$players.focused?.observerSlot);
 			}
 			else {

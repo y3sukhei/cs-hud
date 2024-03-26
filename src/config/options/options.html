@@ -23,69 +23,15 @@
 <Update />
 
 
-<h2 style="margin: 50px;">
+<div style="margin: 50px;">
+
+	<h2>
 		Cameras
-</h2>
-
-<div style="display: grid; grid-template-columns: 10fr 10fr 10fr 10fr 10fr; margin: 50px;">
-
-	<div class="iframe" id="p1">
-		<select v-model="selected">
-			<option v-for="option in options" :value="option.value">
-			  {{ option.text }}
-			</option>
-		  </select>
-		<iframe src="http://localhost:8889/mystream1/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
-		</iframe>	
-	</div>
-
-	<div class="iframe" id="p2">
-		<input type="number" placeholder="player 2" style="width: auto;"/>
-		<iframe src="http://localhost:8889/mystream2/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
-		</iframe>	
-	</div>
-	<div class="iframe" id="p3">
-		<input type="number" placeholder="player 3" style="width: auto;"/>
-		<iframe src="http://localhost:8889/mystream3/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
-		</iframe>	
-	</div>
-	<div class="iframe" id="p4">
-		<input type="number" placeholder="player 4" style="width: auto;"/>
-		<iframe src="http://localhost:8889/mystrea4/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
-		</iframe>	
-	</div>
-	<div class="iframe" id="p5">
-		<input type="number" placeholder="player 5" style="width: auto;"/>
-		<iframe src="http://localhost:8889/mystream5/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
-		</iframe>	
-	</div>
-	<div class="iframe" id="p6">
-		<input type="number" placeholder="player 6" style="width: auto;"/>
-		<iframe src="http://localhost:8889/mystream6/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
-		</iframe>	
-	</div>
-	<div class="iframe" id="p7">
-		<input type="number" placeholder="player 7" style="width: auto;"/>
-		<iframe src="http://localhost:8889/mystream7/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
-		</iframe>	
-	</div>
-	<div class="iframe" id="p8">
-		<input type="number" placeholder="player 8" style="width: auto;"/>
-		<iframe src="http://localhost:8889/mystream8/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
-		</iframe>	
-	</div>
-	<div class="iframe" id="p9">
-		<input type="number" placeholder="player 9" style="width: auto;"/>
-		<iframe src="http://localhost:8889/mystream9/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
-		</iframe>	
-	</div>
-	<div class="iframe" id="p0">
-		<input type="number" placeholder="player 0" style="width: auto;"/>
-		<iframe src="http://localhost:8889/mystream0/?controls=0" scrolling="no" allow="autoplay" width="320" height="240">
-		</iframe>	
-	</div>
-
+	</h2>
+	
 </div>
+
+
 
 
 
@@ -107,6 +53,27 @@
 				{{ segment }}{{ i === option.keySegments.length - 1 ? '' : '.' }}<wbr>
 			</template>
 		</label>
+		
+		<div v-if="option.type == 'array'">
+			<button style="margin-top: 40px;" @click="resetOptions(option.key)">Reset Values</button>	
+			<div  style="display: grid; grid-template-columns: 10fr 10fr 10fr 10fr 10fr; margin: 50px;">
+				
+				<div v-for="(camera, index) in optionValues[option.key]" class="iframe" id="p1">
+					<div>Selected: {{ camera.slot }}</div>
+					
+					<select v-model="camera.slot" @change="onSelectChange">
+						<option v-for="option in options" :value="option.value" :disabled="option.disabled">
+							{{ option.text }}
+						</option>
+					</select>
+			  
+				<div>Camera: {{ index+1 + '\n' + camera.url}}</div>
+				<iframe :src="camera.url" scrolling="no" allow="autoplay" width="320" height="240">
+				</iframe>	
+			</div>
+		</div>
+		
+	</div>
 
 		<div class="input">
 			<textarea
@@ -117,7 +84,7 @@
 			></textarea>
 
 			<input
-				v-else
+				v-else-if="option.type !=='array'"
 				:type="option.inputType"
 				:id="option.key"
 				:placeholder="option.fallback"
@@ -130,7 +97,7 @@
 		</div>
 
 		<div class="default-and-label">
-			<p v-if="option.fallback" class="default">
+			<p v-if="option.fallback && option.type !== 'array'" class="default">
 				Default:
 				<code v-if="option.type === 'boolean'">{{ option.fallback ? 'yes' : 'no' }}</code>
 				<code v-else>{{ option.fallback }}</code>

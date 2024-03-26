@@ -9,27 +9,21 @@ export default {
 	data() {
 		return {
 			options : [
-				{ text: 'One', value: 'A' },
-				{ text: 'Two', value: 'B' },
-				{ text: 'Three', value: 'C' }
+				{ text: 'Slot 1', value: 1, disabled: false },
+				{ text: 'Slot 2', value: 2, disabled: false },
+				{ text: 'Slot 3', value: 3, disabled: false },
+				{ text: 'Slot 4', value: 4, disabled: false },
+				{ text: 'Slot 5', value: 5, disabled: false },
+				{ text: 'Slot 6', value: 6, disabled: false },
+				{ text: 'Slot 7', value: 7, disabled: false },
+				{ text: 'Slot 8', value: 8, disabled: false },
+				{ text: 'Slot 9', value: 9, disabled: false },
+				{ text: 'Slot 10', value: 10, disabled: false },
 			  ],  
-			selected : 'A',
 			initialTheme: null,
 			optionValues: {},
 			sections: [],
 			players: [],
-			cameras: [
-				{ slot:1,url:"http://localhost:8889/mystream1/?controls=0" },
-				{ slot:2,url:"http://localhost:8889/mystream2/?controls=0" },
-				{ slot:3,url:"http://localhost:8889/mystream3/?controls=0" },
-				{ slot:4,url:"http://localhost:8889/mystream4/?controls=0" },
-				{ slot:5,url:"http://localhost:8889/mystream5/?controls=0" },
-				{ slot:6,url:"http://localhost:8889/mystream6/?controls=0" },
-				{ slot:7,url:"http://localhost:8889/mystream7/?controls=0" },
-				{ slot:8,url:"http://localhost:8889/mystream8/?controls=0" },
-				{ slot:9,url:"http://localhost:8889/mystream9/?controls=0" },
-				{ slot:0,url:"http://localhost:8889/mystream0/?controls=0" },
-		    ]
 		}
 	},
 	mounted() {
@@ -42,9 +36,22 @@ export default {
 	},
 
 	methods: {
+		onSelectChange(e) {
+			const index = e.target.selectedIndex;
+			this.options = this.options.map((o, i) => {
+			  if (i === index) {
+				o.disabled = true;
+			  } else {
+				// o.disabled = false;
+			  }
+			  return o;
+			});
+		  },
 		async initOptions() {
 			const res = await fetch('/config/options')
 			const json = await res.json()
+			
+			console.log("settings :", json);
 
 			const optionValues = {}
 			const sections = {}
@@ -57,8 +64,13 @@ export default {
 						options: [],
 					}
 				}
+				if (option.key === "playerCameras") {
+					optionValues[option.key] = option.fallback;
 
-				optionValues[option.key] = option.value
+				} else {
+
+					optionValues[option.key] = option.value
+				}
 
 				sections[option.section].options.push({
 					...option,
@@ -74,6 +86,10 @@ export default {
 			this.initialTheme = optionValues.theme
 			this.optionValues = optionValues
 			this.sections = Object.values(sections)
+
+			console.log("this. option values :", this.optionValues);
+			console.log("this. sections :", this.sections);
+
 		},
 
 		getInputType(type) {
@@ -102,6 +118,7 @@ export default {
 		},
 
 		async save() {
+			console.log("option Values :", this.optionValues);
 			await fetch('/config/options', {
 				method: 'PUT',
 				headers: { 'Content-Type': 'application/json' },
@@ -120,5 +137,17 @@ export default {
 		resetValue(key) {
 			this.optionValues[key] = null
 		},
+
+		resetOptions(key) {
+			this.optionValues[key].map((o,i)=>{
+				o.slot = null;
+				
+			})
+			this.options.map((o, i) => {
+				  o.disabled = false;
+				
+			  });
+
+		}
 	},
 }

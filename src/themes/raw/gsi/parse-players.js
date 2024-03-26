@@ -10,7 +10,7 @@ const getObserverSlot = (player, steam64Id) => {
 	if (options['preferences.isCsgo']) return rawSlot
 
 	if (rawSlot === undefined) return
-	if (rawSlot === 9) return 0
+	// if (rawSlot === 9) return 0
 	return rawSlot + 1
 }
 
