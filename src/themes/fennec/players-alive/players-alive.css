@@ -2,7 +2,7 @@
   position: fixed;
   top: var(--viewport-margin-top);
   right: var(--viewport-margin-right);
-
+  border-radius: 5px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
@@ -18,12 +18,19 @@
 .title {
   grid-area: title;
   padding: 0.25rem 0.5rem;
-
   font-size: 1.25rem;
   letter-spacing: 0.125em;
 }
 
-.team,
+.team {
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  padding: 0.5rem;
+  min-width: calc(1rem + 1ch);
+}
 .vs {
   display: flex;
   align-items: center;
