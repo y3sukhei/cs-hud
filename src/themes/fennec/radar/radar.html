@@ -5,7 +5,6 @@
     alt=""
     :class="['radar-image', { '--transparent-background': radarConfig.radarImageTransparentBackgrond }]"
   />
-
   <Bomb />
   <Grenade v-for="grenade of $grenades" :grenade="grenade" :key="grenade.id" />
   <Player v-for="player of $players" :player="player" :key="player.steam64Id" />

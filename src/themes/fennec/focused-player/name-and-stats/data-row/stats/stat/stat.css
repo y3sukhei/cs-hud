@@ -1,25 +1,25 @@
 .stat {
-	margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .label,
 .value {
-	text-align: center;
+  text-align: center;
 }
 
 .label {
-	font-size: 1.5rem;
-	transition: color var(--fade-fast-duration) ease;
+  font-size: 1.5rem;
+  transition: color var(--fade-fast-duration) ease;
 }
 
 .label.--ct {
-	color: var(--counter-terrorists-text);
+  color: var(--counter-terrorists-text);
 }
 
 .label.--t {
-	color: var(--terrorists-text);
+  color: var(--terrorists-text);
 }
 
 .value {
-	min-width: 3ch;
+  min-width: 3ch;
 }

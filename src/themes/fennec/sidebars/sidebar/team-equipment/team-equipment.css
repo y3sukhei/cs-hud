@@ -17,6 +17,7 @@
 
 .team-equipment {
   display: flex;
+  border-radius: 10px;
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--sidebar-vertical-spacing);
