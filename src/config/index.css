@@ -1,13 +1,14 @@
 *,
 *::after,
 *::before {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-	background: #212121;
-	color: #aeaeae;
-	font-family: 'Source Sans Pro', 'Ubuntu', 'Segoe UI Variable', 'Segoe UI', system-ui, ui-sans-serif, 'Calibri', sans-serif;
-	line-height: 1.25;
+  background: #212121;
+  color: #aeaeae;
+  font-family: "Source Sans Pro", "Ubuntu", "Segoe UI Variable", "Segoe UI",
+    system-ui, ui-sans-serif, "Calibri", sans-serif;
+  line-height: 1.25;
 }

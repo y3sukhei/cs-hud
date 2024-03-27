@@ -1,13 +1,13 @@
-import { teamColorClass } from '/hud/helpers/team-color-class.js'
+import { teamColorClass } from "/hud/helpers/team-color-class.js";
 
 export default {
-	computed: {
-		player() {
-			return this.$players.focused
-		},
+  computed: {
+    player() {
+      return this.$players.focused;
+    },
 
-		colorClass() {
-			return teamColorClass(this.player.team)
-		},
-	},
-}
+    colorClass() {
+      return teamColorClass(this.player.team);
+    },
+  },
+};
