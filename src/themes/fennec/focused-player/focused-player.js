@@ -26,9 +26,9 @@ export default {
 	mounted() {
 		this.setOverlayBottomImageUrl()
 		
-		if (! this.$round.isFreezetime && this.$players.focused.observerSlot == this.playerCameras[this.$players.focused.observerSlot-1].slot) {
-			this.showPanel("p"+this.$players.focused.observerSlot);
-		}
+		// if (! this.$round.isFreezetime && this.$players.focused.observerSlot == this.playerCameras[this.$players.focused.observerSlot-1].slot) {
+		// 	this.showPanel("p"+this.$players.focused.observerSlot);
+		// }
 	},
 
 	computed: {		
@@ -40,7 +40,7 @@ export default {
 	},
 	watch :{
 		isActive() {
-			if (!this.$round.isFreezetime && this.$players.focused.observerSlot == this.playerCameras[this.$players.focused.observerSlot-1].slot) {
+			if (!this.$round.isFreezetime && this.$players.focused) {
 				console.log("slot", this.$players.focused.observerSlot)
 				this.showPanel("p"+this.$players.focused?.observerSlot);
 			}
