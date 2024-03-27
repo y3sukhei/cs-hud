@@ -12,13 +12,19 @@ export default {
 	data() {
 		return {
 			overlayBottomImageUrl: null,
-			playerCameras:null
+			playerCameras:[]
 		
 		}
 	},
 	beforeMount() {
+		this.$opts['playerCameras'].map((o,i)=>{
+			if(o.slot !== null){
+
+				this.playerCameras[o.slot-1] = o;
+			}
+		})
 	
-		this.playerCameras = this.$opts['playerCameras'].sort(({slot:a}, {slot:b}) => a-b);
+		// this.playerCameras = this.$opts['playerCameras'].sort(({slot:a}, {slot:b}) => a-b);
 		console.log("player Cameras :",this.playerCameras);
 	
 	},
@@ -40,8 +46,7 @@ export default {
 	},
 	watch :{
 		isActive() {
-			if (!this.$round.isFreezetime && this.$players.focused) {
-				console.log("slot", this.$players.focused.observerSlot)
+			if (!this.$round.isFreezetime && this.$players.focused && this.playerCameras.length > 0) {
 				this.showPanel("p"+this.$players.focused?.observerSlot);
 			}
 			else {

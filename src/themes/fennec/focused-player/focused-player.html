@@ -9,12 +9,12 @@
 </Transition>
 <!-- <Transition mode="out-in"> -->
 <!-- haha -->
-	<div class="iframe" id="p1">
-		<p> {{playerCameras[0].url}}</p>
-		<iframe :src="playerCameras[0].url" scrolling="no" allow="autoplay" width="320" height="240">
+	<div v-for ="(playerCamera, i) in playerCameras" class="iframe" :id="`p${playerCamera.slot}`">
+		<p> {{playerCamera.url}}</p>
+		<iframe :src="playerCamera.url" scrolling="no" allow="autoplay" width="320" height="240">
 		</iframe>	
 	</div>
-	<div class="iframe" id="p2">
+	<!-- <div class="iframe" id="p2">
 		<p>{{playerCameras[1].url}}</p>
 		<iframe :src="playerCameras[1].url" scrolling="no" allow="autoplay" width="320" height="240">
 		</iframe>	
@@ -58,6 +58,6 @@
 		<p>{{playerCameras[9].url}}</p>
 		<iframe :src="playerCameras[9].url" scrolling="no" allow="autoplay" width="320" height="240">
 		</iframe>	
-	</div>
+	</div> -->
 <!-- </Transition> -->
 	

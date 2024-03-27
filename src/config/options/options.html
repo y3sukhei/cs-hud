@@ -45,6 +45,12 @@
 		</p>
 	</header>
 
+	<!-- <div v-if="players">
+		<h2>players</h2>
+		<pre>{{ players }}</pre>
+	</div> -->
+	
+
 	
 
 	<div v-for="option of section.options" class="input-group">
@@ -55,18 +61,19 @@
 		</label>
 		
 		<div v-if="option.type == 'array'">
-			<button style="margin-top: 40px;" @click="resetOptions(option.key)">Reset Values</button>	
+			<button @click="getPlayers">Get Players</button>	
+			<button class="resetValues" @click="resetOptions(option.key)">Reset Values</button>	
 			<div  style="display: grid; grid-template-columns: 10fr 10fr 10fr 10fr 10fr; margin: 50px;">
 				
 				<div v-for="(camera, index) in optionValues[option.key]" class="iframe" id="p1">
 					<div>Selected: {{ camera.slot }}</div>
 					
-					<select v-model="camera.slot" @change="onSelectChange">
-						<option v-for="option in options" :value="option.value" :disabled="option.disabled">
-							{{ option.text }}
+					<select class="select" v-model="camera.slot" @change="onSelectChange">
+						<option v-for="player in players" :value="player.observerSlot" :disabled="player.disabled">
+							{{player.observerSlot}}.      {{ player.name }}         
 						</option>
 					</select>
-			  
+				
 				<div>Camera: {{ index+1 + '\n' + camera.url}}</div>
 				<iframe :src="camera.url" scrolling="no" allow="autoplay" width="320" height="240">
 				</iframe>	

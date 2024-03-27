@@ -94,3 +94,12 @@ textarea {
 	height: 8rem;
 	resize: vertical;
 }
+
+.select{
+	position: relative;
+	width: 200px;
+	height: 30px;
+	margin-right: 1rem;
+	border-radius: 20px;
+}
+

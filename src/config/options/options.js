@@ -23,12 +23,24 @@ export default {
 			initialTheme: null,
 			optionValues: {},
 			sections: [],
-			players: [],
+			players: null,
 		}
 	},
+	// watch:{
+	// 	$players: {
+	// 		deep: true,
+	// 		handler: function (players) {
+	// 			this.players = players.map((player) => ({
+	// 				...player,
+	// 				team: `(side ${player.team.side})`,
+	// 			}))
+	// 		},
+	// 	},
+	// },
 	mounted() {
 		document.addEventListener('keydown', this.onKeydown)
-		this.initOptions()	
+		this.initOptions()
+		// console.log("players :", this.$players);	
 	},
 
 	beforeUnmount() {
@@ -36,13 +48,18 @@ export default {
 	},
 
 	methods: {
+		getPlayers() {
+			this.players = this.$players;
+			
+			console.log("players :", this.players);
+		},
 		onSelectChange(e) {
 			const index = e.target.selectedIndex;
-			this.options = this.options.map((o, i) => {
+			this.players = this.players.map((o, i) => {
 			  if (i === index) {
 				o.disabled = true;
 			  } else {
-				// o.disabled = false;
+				o.disabled = false;
 			  }
 			  return o;
 			});
@@ -116,18 +133,24 @@ export default {
 				return this.save()
 			}
 		},
-
 		async save() {
-			console.log("option Values :", this.optionValues);
-			await fetch('/config/options', {
-				method: 'PUT',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(this.optionValues),
-			})
-
-			if (this.optionValues.theme !== this.initialTheme) {
-				window.location.reload()
+			
+			if (this.optionValues.playerCameras.filter((o)=> o.slot !== null).length < 10) {
+				alert("all slots must be filled!!!")
 			}
+
+			else {
+				await fetch('/config/options', {
+					method: 'PUT',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(this.optionValues),
+				})
+				
+				if (this.optionValues.theme !== this.initialTheme) {
+					window.location.reload()
+				}
+			}
+
 		},
 
 		async forceHudRefresh() {
