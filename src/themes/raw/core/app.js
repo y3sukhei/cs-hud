@@ -4,7 +4,7 @@ import { connectToWebsocket } from '/hud/core/websocket.js'
 import { loadModule } from '/dependencies/vue3-sfc-loader.js'
 import { sfcLoaderOptions } from '/dependencies/vue3-sfc-loader-options.js'
 
-connectToWebsocket()
+connectToWebsocket("connect")
 
 const app = Vue.createApp(
 	Vue.defineAsyncComponent(() => loadModule('/hud/shell/shell.vue', sfcLoaderOptions)),

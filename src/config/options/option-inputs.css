@@ -103,3 +103,29 @@ textarea {
 	border-radius: 20px;
 }
 
+.cameraButtons button {
+	margin: 0.5rem;
+	padding: 0.5rem 1rem;
+	display: block;
+
+	background: none;
+	border: 1px solid;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	text-align: center;
+	text-decoration: none;
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease,
+		transform 0.3s ease;
+}
+.cameraButtons button.green {
+	border-color: green;
+}
+
+.cameraButtons button.green:hover {
+	background: green;
+	color: #fff;
+}
+

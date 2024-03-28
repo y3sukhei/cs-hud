@@ -17,14 +17,15 @@ export default {
 		}
 	},
 	beforeMount() {
-		this.$opts['playerCameras'].map((o,i)=>{
-			if(o.slot !== null){
+		console.log("before :",this.$opts['playerCameras']);
+		// this.$opts['playerCameras'].map((o,i)=>{
+		// 	if(o.slot !== null){
 
-				this.playerCameras[o.slot-1] = o;
-			}
-		})
+		// 		this.playerCameras[o.slot-1] = o;
+		// 	}
+		// })
+		this.playerCameras = this.$opts['playerCameras'];
 	
-		// this.playerCameras = this.$opts['playerCameras'].sort(({slot:a}, {slot:b}) => a-b);
 		console.log("player Cameras :",this.playerCameras);
 	
 	},

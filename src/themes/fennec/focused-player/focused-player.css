@@ -18,7 +18,7 @@
 	left: calc((100% - 320px) / 2);
 	right: calc((100% - 320px) / 2);
 	top: calc((100% - 357px));
-	display: block;
+	display: none;
 	/* grid-template-columns: 35fr ; */
 	/* position: absolute; */
 	/* display: none; */

@@ -1,5 +1,6 @@
 import Update from '/config/options/update/update.vue'
-
+import { connectToWebsocket } from '/hud/core/websocket.js'
+import { players } from '/hud/core/state.js'
 export default {
 	components: {
 		Update,
@@ -26,21 +27,10 @@ export default {
 			players: null,
 		}
 	},
-	// watch:{
-	// 	$players: {
-	// 		deep: true,
-	// 		handler: function (players) {
-	// 			this.players = players.map((player) => ({
-	// 				...player,
-	// 				team: `(side ${player.team.side})`,
-	// 			}))
-	// 		},
-	// 	},
-	// },
 	mounted() {
 		document.addEventListener('keydown', this.onKeydown)
 		this.initOptions()
-		// console.log("players :", this.$players);	
+		connectToWebsocket("connect");
 	},
 
 	beforeUnmount() {
@@ -48,8 +38,13 @@ export default {
 	},
 
 	methods: {
+		// closeConnection() {
+
+		// 	connectToWebsocket("close");
+		
+		// },
 		getPlayers() {
-			this.players = this.$players;
+			this.players = players;
 			
 			console.log("players :", this.players);
 		},
@@ -68,8 +63,6 @@ export default {
 			const res = await fetch('/config/options')
 			const json = await res.json()
 			
-			console.log("settings :", json);
-
 			const optionValues = {}
 			const sections = {}
 
@@ -149,6 +142,9 @@ export default {
 				if (this.optionValues.theme !== this.initialTheme) {
 					window.location.reload()
 				}
+				// close connection after get players
+				
+				connectToWebsocket("close");
 			}
 
 		},
