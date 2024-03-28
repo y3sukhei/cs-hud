@@ -1,7 +1,7 @@
 <Transition name="fast">
-	<div v-if="player.hasArmor || player.hasHelmet" class="armor">
-		<img v-if="player.hasHelmet" src="/hud/img/icons/armor-helmet.svg" alt="">
-		<img v-else src="/hud/img/icons/armor.svg" alt="">
+	<div v-if="player.hasArmor || player.hasHelmet" class="armor" style="display: flex; justify-content: center; align-items: center;">
+		<img v-if="player.hasHelmet" src="/hud/img/icons/armor-helmet.svg" style="height: 10px; width: 10px;" alt="">
+		<img v-else src="/hud/img/icons/armor.svg" style="height: 10px; width: 10px;" alt="">
 		<Digits :value="player.armor" digits="3">
 	</div>
 </Transition>

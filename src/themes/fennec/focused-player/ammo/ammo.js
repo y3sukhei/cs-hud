@@ -1,23 +1,23 @@
-import { teamColorClass } from '/hud/helpers/team-color-class.js'
-import Digits from '/hud/digits/digits.vue'
+import Digits from "/hud/digits/digits.vue";
+import { teamColorClass } from "/hud/helpers/team-color-class.js";
 
 export default {
-	components: {
-		Digits,
-	},
+  components: {
+    Digits,
+  },
 
-	computed: {
-		player() {
-			return this.$players.focused
-		},
+  computed: {
+    player() {
+      return this.$players.focused;
+    },
 
-		weapon() {
-			if (this.player?.primary?.isActive) return this.player.primary
-			if (this.player?.secondary?.isActive) return this.player.secondary
-		},
+    weapon() {
+      if (this.player?.primary?.isActive) return this.player.primary;
+      if (this.player?.secondary?.isActive) return this.player.secondary;
+    },
 
-		colorClass() {
-			return teamColorClass(this.player.team)
-		},
-	},
-}
+    colorClass() {
+      return teamColorClass(this.player.team);
+    },
+  },
+};

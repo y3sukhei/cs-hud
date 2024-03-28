@@ -3,16 +3,13 @@
     v-if="isActive"
     :class="['focused-player', { '--has-overlay-bottom': !! overlayBottomImageUrl }]"
   >
-    <FocusedPlayerHealthAndArmor />
     <FocusedPlayerNameAndStats />
-    <FocusedPlayerAmmo />
   </div>
 
   <div v-else-if="$round.isFreezetime" class="freezetime-placeholder"></div>
 </Transition>
 <!-- <Transition mode="out-in"> -->
 <!-- haha -->
-
 <div class="iframe" id="p1">
   <!-- <p>{{playerCameras[0].url}}</p> -->
   <iframe

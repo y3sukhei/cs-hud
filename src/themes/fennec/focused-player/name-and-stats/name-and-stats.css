@@ -7,15 +7,14 @@
     "before data-row after";
 }
 
-.name-and-stats::before,
+/* .name-and-stats::before,
 .name-and-stats::after {
   content: "";
   display: block;
   width: 1.5rem;
-
   transition: background-color var(--fade-fast-duration) ease;
   z-index: 1;
-}
+} */
 
 .name-and-stats::before {
   grid-area: before;

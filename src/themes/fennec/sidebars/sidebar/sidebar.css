@@ -2,7 +2,6 @@
   position: absolute;
   bottom: var(--viewport-margin-bottom);
   width: var(--sidebar-width);
-
   transition: transform var(--fade-slow-duration) ease;
 }
 

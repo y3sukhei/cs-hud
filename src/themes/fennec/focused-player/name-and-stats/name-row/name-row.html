@@ -1,1 +1,19 @@
-<div :class="['name-row', colorClass]">{{ player.name }}</div>
+<div :class="['name-row', colorClass]">
+  {{ player.name }}
+  <div class="inner" style="gap: 10px">
+    <div style="display: flex; gap: 10px">
+      <Health />
+      <Armor />
+    </div>
+    <div v-if="weapon">
+      <div :class="['ammo', colorClass]">
+        <div :class="['inner', colorClass]" style="font-size: medium">
+          <div class="clip">
+            <Digits :value="weapon.ammoClip" digits="3"></Digits>
+          </div>
+          <div class="reserve">/{{ weapon.ammoReserve }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
