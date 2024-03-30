@@ -1,16 +1,13 @@
-import { positionClass } from '/hud/helpers/position-class.js'
+import { positionClass } from "/hud/helpers/position-class.js";
 
 export default {
-	props: [
-		'position',
-		'player',
-	],
+  props: ["position", "player"],
 
-	computed: {
-		positionClass,
+  computed: {
+    positionClass,
 
-		iconUrl() {
-			return `/hud/img/weapons/${this.player.primary.unprefixedName}.svg`
-		},
-	},
-}
+    iconUrl() {
+      return `/hud/img/weapons/${this.player.primary.unprefixedName}.svg`;
+    },
+  },
+};

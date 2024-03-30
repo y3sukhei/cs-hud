@@ -1,5 +1,4 @@
 .digit {
-	display: inline-block;
-	min-width: 1ch;
-	text-align: center;
+  display: inline-block;
+  text-align: center;
 }

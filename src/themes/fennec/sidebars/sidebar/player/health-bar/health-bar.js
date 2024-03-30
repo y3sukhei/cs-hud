@@ -1,46 +1,43 @@
-import { positionClass } from '/hud/helpers/position-class.js'
-import { teamColorClass } from '/hud/helpers/team-color-class.js'
+import { positionClass } from "/hud/helpers/position-class.js";
+import { teamColorClass } from "/hud/helpers/team-color-class.js";
 
 export default {
-	props: [
-		'position',
-		'player',
-	],
+  props: ["position", "player"],
 
-	data() {
-		return {
-			damageTakenTimeout: null,
-			healthBeforeDamageTaken: this.player.health,
-		}
-	},
+  data() {
+    return {
+      damageTakenTimeout: null,
+      healthBeforeDamageTaken: this.player.health,
+    };
+  },
 
-	beforeUnmount() {
-		this.clearDamageTakenTimeout()
-	},
+  beforeUnmount() {
+    this.clearDamageTakenTimeout();
+  },
 
-	computed: {
-		positionClass,
+  computed: {
+    positionClass,
 
-		colorClass() {
-			return teamColorClass(this.player.team)
-		},
-	},
+    colorClass() {
+      return teamColorClass(this.player.team);
+    },
+  },
 
-	methods: {
-		clearDamageTakenTimeout() {
-			if (this.damageTakenTimeout) clearTimeout(this.damageTakenTimeout)
-		},
-	},
+  methods: {
+    clearDamageTakenTimeout() {
+      if (this.damageTakenTimeout) clearTimeout(this.damageTakenTimeout);
+    },
+  },
 
-	watch: {
-		player(now, previously) {
-			if (now.health === previously.health) return
+  watch: {
+    player(now, previously) {
+      if (now.health === previously.health) return;
 
-			this.clearDamageTakenTimeout()
+      this.clearDamageTakenTimeout();
 
-			this.damageTakenTimeout = setTimeout(() => {
-				this.healthBeforeDamageTaken = this.player.health
-			}, 2500)
-		},
-	},
-}
+      this.damageTakenTimeout = setTimeout(() => {
+        this.healthBeforeDamageTaken = this.player.health;
+      }, 2500);
+    },
+  },
+};

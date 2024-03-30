@@ -1,13 +1,13 @@
-import Digits from '/hud/digits/digits.vue'
+import Digits from "/hud/digits/digits.vue";
 
 export default {
-	components: {
-		Digits,
-	},
+  components: {
+    Digits,
+  },
 
-	computed: {
-		player() {
-			return this.$players.focused
-		},
-	},
-}
+  computed: {
+    player() {
+      return this.$players.focused;
+    },
+  },
+};

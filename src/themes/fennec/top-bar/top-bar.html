@@ -1,6 +1,11 @@
 <div class="top-bar">
-	<SeriesName />
-	<Team :team="$teams[0]" position="left" />
-	<Center />
-	<Team :team="$teams[1]" position="right" />
+  <img
+    style="position: absolute; z-index: -1; width: 100%"
+    src="/hud/img/backgrounds/topbackground.webp"
+    alt=""
+  />
+  <SeriesName />
+  <Team :team="$teams[0]" position="left" />
+  <center />
+  <Team :team="$teams[1]" position="right" />
 </div>

@@ -1,15 +1,15 @@
 .radar {
-	position: relative;
-
-	width: var(--radar-width);
-	aspect-ratio: 1;
-	overflow: hidden; /* might break the drop shadow on some maps (not sure), but prevents players floating around on screen during 1v1 warmups */
+  position: relative;
+  margin: 10px;
+  width: 300px;
+  aspect-ratio: 1;
+  overflow: hidden;
 }
 
 img.radar-image {
-	width: 100%;
+  width: 100%;
 }
 
 img.radar-image.--transparent-background {
-	filter: var(--filter-drop-shadow);
+  filter: var(--filter-drop-shadow);
 }

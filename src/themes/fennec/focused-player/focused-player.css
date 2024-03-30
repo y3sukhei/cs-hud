@@ -1,28 +1,29 @@
 .focused-player {
-	position: fixed;
-	bottom: var(--viewport-margin-bottom);
-	left: calc((100% - var(--focused-player-width)) / 2);
-	right: calc((100% - var(--focused-player-width)) / 2);
-
-	display: grid;
-	grid-template-columns: 16fr 35fr 16fr;
-
-	filter: var(--filter-drop-shadow);
+  position: fixed;
+  bottom: var(--viewport-margin-bottom);
+  left: calc((100% - var(--focused-player-width)) / 2);
+  right: calc((100% - var(--focused-player-width)) / 2);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  filter: var(--filter-drop-shadow);
 }
 
 .focused-player.--has-overlay-bottom {
-	bottom: var(--focused-player-margin-bottom-with-overlay-bottom);
+  bottom: var(--focused-player-margin-bottom-with-overlay-bottom);
 }
+
 .iframe {
-	position: absolute;
-	left: calc((100% - 320px) / 2);
-	right: calc((100% - 320px) / 2);
-	top: calc((100% - 357px));
-	display: none;
-	/* grid-template-columns: 35fr ; */
-	/* position: absolute; */
-	/* display: none; */
-	/* top: 100; */
-	/* left: 100;  */
-	/* display: none; */
+  position: relative;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.camera {
+  border-radius: 20px;
+  border: 0;
+  height: 150px;
+  width: 200px;
+  box-shadow: 10px;
 }

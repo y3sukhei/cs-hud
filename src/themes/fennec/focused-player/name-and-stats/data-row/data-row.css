@@ -1,10 +1,40 @@
 .data-row {
-	grid-area: data-row;
+  grid-area: data-row;
+  border-top: 10px;
+  display: grid;
+  grid-template-columns: max-content 6rem 6rem 1fr;
+  padding: 0.5rem 2rem;
+  background: var(--black-50);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  /* clip-path: var(--polygon-bordered-by-diagonals); */
+}
+.primary {
+  grid-area: primary;
 
-	display: grid;
-	grid-template-columns: max-content 6rem 6rem 1fr;
-	padding: 0.5rem 2rem;
+  display: flex;
+  align-items: center;
+}
 
-	background: var(--black-50);
-	clip-path: var(--polygon-bordered-by-diagonals);
+.primary img {
+  height: 2rem;
+  transition: opacity var(--fade-fast-duration) ease;
+}
+
+.primary img:not(.--active) {
+  opacity: 0.5;
+}
+
+.primary.--left {
+  justify-content: flex-end;
+  padding-right: var(--sidebar-player-weapon-padding);
+}
+
+.primary.--right {
+  justify-content: flex-start;
+  padding-left: var(--sidebar-player-weapon-padding);
+}
+
+.primary.--right img {
+  transform: rotateY(180deg);
 }
