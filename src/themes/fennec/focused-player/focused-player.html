@@ -11,7 +11,7 @@
 <!-- haha -->
 	<div v-for ="(playerCamera, i) in playerCameras" class="iframe" :id="`p${playerCamera.slot}`">
 		<p> {{playerCamera.url}}</p>
-		<iframe :src="playerCamera.url" scrolling="no" allow="autoplay" width="320" height="240">
+		<iframe :src="`${playerCamera.url}?controls=0`" scrolling="no" allow="autoplay" width="320" height="240">
 		</iframe>	
 	</div>
 	<!-- <div class="iframe" id="p2">
