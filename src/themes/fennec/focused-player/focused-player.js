@@ -38,7 +38,6 @@ export default {
   watch: {
     isActive() {
       if (!this.$round.isFreezetime && this.$players.focused) {
-        console.log("slot", this.$players.focused.observerSlot);
         this.showPanel("p" + this.$players.focused.observerSlot);
       } else {
         this.hidePanel();
