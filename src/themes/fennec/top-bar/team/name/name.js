@@ -1,23 +1,20 @@
-import { positionClass } from '/hud/helpers/position-class.js'
-import { teamColorClass } from '/hud/helpers/team-color-class.js'
+import { positionClass } from "/hud/helpers/position-class.js";
+import { teamColorClass } from "/hud/helpers/team-color-class.js";
 
 export default {
-	props: [
-		'position',
-		'team',
-	],
+  props: ["position", "team"],
 
-	data() {
-		return {
-			logoImageLoaded: false,
-		}
-	},
+  data() {
+    return {
+      logoImageLoaded: false,
+    };
+  },
 
-	computed: {
-		positionClass,
+  computed: {
+    positionClass,
 
-		colorClass() {
-			return teamColorClass(this.team)
-		},
-	},
-}
+    colorClass() {
+      return teamColorClass(this.team);
+    },
+  },
+};

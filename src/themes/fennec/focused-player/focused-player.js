@@ -12,36 +12,18 @@ export default {
   data() {
     return {
       overlayBottomImageUrl: null,
-      playerCameras: null,
-    };
-  },
-  beforeMount() {
-    this.playerCameras = this.$opts["playerCameras"].sort(
-      ({ slot: a }, { slot: b }) => a - b
-    );
-    console.log("player Cameras :", this.playerCameras);
-  },
-  data() {
-    return {
-      overlayBottomImageUrl: null,
       playerCameras: [],
     };
   },
+
   beforeMount() {
-    console.log("before :", this.$opts["playerCameras"]);
-    // this.$opts['playerCameras'].map((o,i)=>{
-    // 	if(o.slot !== null){
-
-    // 		this.playerCameras[o.slot-1] = o;
-    // 	}
-    // })
+    console.log("before:", this.$opts["playerCameras"]);
     this.playerCameras = this.$opts["playerCameras"];
-
-    console.log("player Cameras :", this.playerCameras);
+    console.log("player Cameras:", this.playerCameras);
   },
 
   mounted() {
-    // setOverlayBottomImageUrl();
+    this.setOverlayBottomImageUrl(); // uncommented this line
     // if (! this.$round.isFreezetime && this.$players.focused.observerSlot == this.playerCameras[this.$players.focused.observerSlot-1].slot) {
     // 	this.showPanel("p"+this.$players.focused.observerSlot);
     // }
@@ -52,11 +34,12 @@ export default {
       return !this.$round.isFreezetime && this.$players.focused;
     },
   },
+
   watch: {
     isActive() {
       if (!this.$round.isFreezetime && this.$players.focused) {
         console.log("slot", this.$players.focused.observerSlot);
-        this.showPanel("p" + this.$players.focused?.observerSlot);
+        this.showPanel("p" + this.$players.focused.observerSlot);
       } else {
         this.hidePanel();
       }
@@ -64,21 +47,23 @@ export default {
   },
 
   methods: {
-    showPanel: function (id) {
+    showPanel(id) {
+      var element = document.getElementById(id);
+      if (element) {
+        var elements = document.getElementsByClassName("iframe");
+        for (let i = 0; i < elements.length; i++) {
+          elements[i].style.display = "none";
+        }
+        element.style.display = "block";
+      }
+    },
+    hidePanel() {
       var elements = document.getElementsByClassName("iframe");
       for (let i = 0; i < elements.length; i++) {
         elements[i].style.display = "none";
       }
-      document.getElementById(id).style.display = "block";
     },
 
-    hidePanel: function () {
-      var elements = document.getElementsByClassName("iframe");
-      for (let i = 0; i < elements.length; i++) {
-        elements[i].style.display = "none";
-      }
-      // document.getElementById(id).style.display = "block";
-    },
     async setOverlayBottomImageUrl() {
       let fetchResponse = await fetch(
         "/hud/overlay-images/focused-player-bottom.webp"

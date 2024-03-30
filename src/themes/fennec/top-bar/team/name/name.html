@@ -1,16 +1,38 @@
-<div :class="['top-bar-team-panel-wrapper', 'name-wrapper', positionClass, colorClass]">
-	<div :class="['top-bar-team-panel', 'name', positionClass, colorClass]">
-		<div class="inner">
-			<img
-				:class="['logo', positionClass, { '--active': logoImageLoaded }]"
-				:src="`/hud/team-logos/${team.name}.png`"
-				alt=""
-				@error="logoImageLoaded = false"
-				@loaded="logoImageLoaded = true"
-				@loading="logoImageLoaded = false"
-			>
+<div
+  :class="['top-bar-team-panel-wrapper', 'name-wrapper', positionClass, colorClass]"
+>
+  <div :class="['top-bar-team-panel', 'name', positionClass, colorClass]">
+    <div
+      class="inner"
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px 0 40px;
+      "
+    >
+      <img
+        :class="['logo', positionClass, { '--active': logoImageLoaded }]"
+        :src="`https://upload.wikimedia.org/wikipedia/en/thumb/a/ac/NaVi_logo.svg/1146px-NaVi_logo.svg.png`"
+        alt=""
+        @error="logoImageLoaded = false"
+        @loaded="logoImageLoaded = true"
+        @loading="logoImageLoaded = false"
+      />
 
-			{{ team.name }}
-		</div>
-	</div>
+      <!-- <img
+        :class="['logo', positionClass, { '--active': logoImageLoaded }]"
+        :src="`/hud/team-logos/${team.name}.png`"
+        alt=""
+        @error="logoImageLoaded = false"
+        @loaded="logoImageLoaded = true"
+        @loading="logoImageLoaded = false"
+      /> -->
+      <p
+        style="font-weight: bold; font-size: larger; text-transform: uppercase"
+      >
+        {{ team.name }}
+      </p>
+    </div>
+  </div>
 </div>

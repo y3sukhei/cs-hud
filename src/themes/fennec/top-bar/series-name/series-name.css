@@ -1,7 +1,8 @@
 .series-name {
   grid-area: series-name;
 
-  display: grid;
+  /* display: grid; */
+  display: none;
   grid-template-columns: 4fr 5fr 4fr;
   grid-template-areas: "left center right";
   width: 90%;

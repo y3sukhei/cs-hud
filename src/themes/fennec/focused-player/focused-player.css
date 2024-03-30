@@ -4,7 +4,7 @@
   left: calc((100% - var(--focused-player-width)) / 2);
   right: calc((100% - var(--focused-player-width)) / 2);
   display: flex;
-  flex-direction: column;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   filter: var(--filter-drop-shadow);
@@ -15,10 +15,7 @@
 }
 
 .iframe {
-  position: absolute;
-  left: calc((100% - 160px) / 2);
-  right: calc((100% - 160px) / 2);
-  bottom: 5vh;
+  position: relative;
   display: none;
   justify-content: center;
   align-items: center;
@@ -27,6 +24,6 @@
   border-radius: 20px;
   border: 0;
   height: 150px;
-  width: 160px;
+  width: 200px;
   box-shadow: 10px;
 }

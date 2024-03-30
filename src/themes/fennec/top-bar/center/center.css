@@ -8,6 +8,7 @@
     "score-left current-round score-right"
     "match-point-rounds match-point-rounds match-point-rounds"
     ". . .";
+  padding-top: 10px;
 }
 
 .center.--is-multiple-map-series {

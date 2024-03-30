@@ -1,4 +1,28 @@
-<div v-if="radarConfig" class="radar">
+<div
+  v-if="radarConfig"
+  style="
+    background-image: url('/hud/img/backgrounds/map.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+  "
+  class="radar"
+>
+  <p
+    style="
+      position: absolute;
+      top: 5px;
+      text-align: center;
+      color: white;
+      width: 100%;
+      font-size: small;
+      text-transform: uppercase;
+    "
+  >
+    National championship 2024 <br />
+    Play-Off Game 5
+  </p>
   <img
     ref="image"
     :src="radarImageUrl"
