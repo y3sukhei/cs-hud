@@ -10,11 +10,11 @@
 				{ "slot":null,"url":"http://10.22.224.103:8889/mystream3/?controls=1" },
 				{ "slot":null,"url":"http://10.22.224.103:8889/mystream4/?controls=1" },
 				{  "slot":null,"url":"http://10.22.224.103:8889/mystream5/?controls=1" },
-				{  "slot":null,"url":"http://10.22.224.103:8889/mystream6/?controls=1" },
-				{  "slot":null,"url":"http://10.22.224.103:8889/mystream7/?controls=1" },
-				{  "slot":null,"url":"http://10.22.224.103:8889/mystream8/?controls=1" },
-				{  "slot":null,"url":"http://10.22.224.103:8889/mystream9/?controls=1" },
-				{  "slot":null,"url":"http://10.22.224.103:8889/mystream10/?controls=1" }
+				{  "slot":null,"url":"http://10.22.224.75:8889/mystream6/?controls=1" },
+				{  "slot":null,"url":"http://10.22.224.48:8889/mystream7/?controls=1" },
+				{  "slot":null,"url":"http://10.22.224.73:8889/mystream8/?controls=1" },
+				{  "slot":null,"url":"http://10.22.224.74:8889/mystream9/?controls=1" },
+				{  "slot":null,"url":"http://10.22.224.142:8889/mystream10/?controls=1" }
 			]
 		},
 		"preferences.isCsgo": {

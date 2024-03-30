@@ -1,5 +1,6 @@
 import Update from '/config/options/update/update.vue'
-
+import { connectToWebsocket } from '/hud/core/websocket.js'
+import { players } from '/hud/core/state.js'
 export default {
 	components: {
 		Update,
@@ -23,12 +24,13 @@ export default {
 			initialTheme: null,
 			optionValues: {},
 			sections: [],
-			players: [],
+			players: null,
 		}
 	},
 	mounted() {
 		document.addEventListener('keydown', this.onKeydown)
-		this.initOptions()	
+		this.initOptions()
+		connectToWebsocket("connect");
 	},
 
 	beforeUnmount() {
@@ -36,13 +38,23 @@ export default {
 	},
 
 	methods: {
+		// closeConnection() {
+
+		// 	connectToWebsocket("close");
+		
+		// },
+		getPlayers() {
+			this.players = players;
+			
+			console.log("players :", this.players);
+		},
 		onSelectChange(e) {
 			const index = e.target.selectedIndex;
-			this.options = this.options.map((o, i) => {
+			this.players = this.players.map((o, i) => {
 			  if (i === index) {
 				o.disabled = true;
 			  } else {
-				// o.disabled = false;
+				o.disabled = false;
 			  }
 			  return o;
 			});
@@ -51,8 +63,6 @@ export default {
 			const res = await fetch('/config/options')
 			const json = await res.json()
 			
-			console.log("settings :", json);
-
 			const optionValues = {}
 			const sections = {}
 
@@ -116,18 +126,27 @@ export default {
 				return this.save()
 			}
 		},
-
 		async save() {
-			console.log("option Values :", this.optionValues);
-			await fetch('/config/options', {
-				method: 'PUT',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(this.optionValues),
-			})
-
-			if (this.optionValues.theme !== this.initialTheme) {
-				window.location.reload()
+			
+			if (this.optionValues.playerCameras.filter((o)=> o.slot !== null).length < 10) {
+				alert("all slots must be filled!!!")
 			}
+
+			else {
+				await fetch('/config/options', {
+					method: 'PUT',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(this.optionValues),
+				})
+				
+				if (this.optionValues.theme !== this.initialTheme) {
+					window.location.reload()
+				}
+				// close connection after get players
+				
+				connectToWebsocket("close");
+			}
+
 		},
 
 		async forceHudRefresh() {
