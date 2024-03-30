@@ -21,30 +21,27 @@ export default {
     );
     console.log("player Cameras :", this.playerCameras);
   },
-	data() {
-		return {
-			overlayBottomImageUrl: null,
-			playerCameras:[]
-		
-		}
-	},
-	beforeMount() {
-		console.log("before :",this.$opts['playerCameras']);
-		// this.$opts['playerCameras'].map((o,i)=>{
-		// 	if(o.slot !== null){
+  data() {
+    return {
+      overlayBottomImageUrl: null,
+      playerCameras: [],
+    };
+  },
+  beforeMount() {
+    console.log("before :", this.$opts["playerCameras"]);
+    // this.$opts['playerCameras'].map((o,i)=>{
+    // 	if(o.slot !== null){
 
-		// 		this.playerCameras[o.slot-1] = o;
-		// 	}
-		// })
-		this.playerCameras = this.$opts['playerCameras'];
-	
-		console.log("player Cameras :",this.playerCameras);
-	
-	},
+    // 		this.playerCameras[o.slot-1] = o;
+    // 	}
+    // })
+    this.playerCameras = this.$opts["playerCameras"];
+
+    console.log("player Cameras :", this.playerCameras);
+  },
 
   mounted() {
-    this.setOverlayBottomImageUrl();
-
+    // setOverlayBottomImageUrl();
     // if (! this.$round.isFreezetime && this.$players.focused.observerSlot == this.playerCameras[this.$players.focused.observerSlot-1].slot) {
     // 	this.showPanel("p"+this.$players.focused.observerSlot);
     // }
@@ -65,6 +62,7 @@ export default {
       }
     },
   },
+
   methods: {
     showPanel: function (id) {
       var elements = document.getElementsByClassName("iframe");
@@ -73,32 +71,6 @@ export default {
       }
       document.getElementById(id).style.display = "block";
     },
-	computed: {		
-		isActive() {
-
-			return ! this.$round.isFreezetime && this.$players.focused
-		
-		},	
-	},
-	watch :{
-		isActive() {
-			if (!this.$round.isFreezetime && this.$players.focused && this.playerCameras.length > 0) {
-				this.showPanel("p"+this.$players.focused?.observerSlot);
-			}
-			else {
-				 this.hidePanel()
-			}
-		},
-	},
-	methods: {
-		showPanel : function (id) {
-			
-			var elements = document.getElementsByClassName("iframe");
-			for (let i = 0; i < elements.length; i++) {
-			  elements[i].style.display = "none";
-			}
-			document.getElementById(id).style.display = "block";
-		  },
 
     hidePanel: function () {
       var elements = document.getElementsByClassName("iframe");
