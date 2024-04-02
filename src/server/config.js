@@ -51,14 +51,13 @@ export const registerConfigRoutes = (router, websocket) => {
 			if (key === 'theme') {
 				wasThemeChanged = settings.parent !== (value || 'fennec')
 				settings.parent = (value || 'fennec')
-			} else if (value) {
+			} else if (value || value === 0) {
 				if (! settings.options[key]) settings.options[key] = {}
 				settings.options[key].value = value
 			} else if (settings.options[key]) {
 				delete settings.options[key].value
 			}
 		}
-
 		await writeJson(userspaceSettingsPath, settings)
 		await websocket.updateCaches()
 
