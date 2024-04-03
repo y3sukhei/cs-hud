@@ -1,6 +1,6 @@
 import Update from '/config/options/update/update.vue'
 import { connectToWebsocket } from '/hud/core/websocket.js'
-import { players } from '/hud/core/state.js'
+import { players, teams} from '/hud/core/state.js'
 export default {
 	components: {
 		Update,
@@ -13,6 +13,7 @@ export default {
 			optionValues: {},
 			sections: [],
 			players: null,
+			teams:null
 		}
 	},
 	mounted() {
@@ -28,8 +29,9 @@ export default {
 	methods: {
 		getPlayers() {
 			this.players = players;
-			
+			this.teams = teams;
 			console.log("players :", this.players);
+			console.log("teams :", this.teams);
 		},
 		onSelectChange(e) {
 			const index = e.target.selectedIndex;
@@ -118,6 +120,7 @@ export default {
 		},
 		
 		async save() {
+			console.log("this. option values in save:", this.optionValues);
 			
 			if (this.optionValues.playerCameras.filter((o)=> o.slot !== null).length < 10) {
 				alert("all slots must be filled!!!");

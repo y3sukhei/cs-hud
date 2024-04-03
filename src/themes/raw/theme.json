@@ -24,7 +24,7 @@
 		},
 
 		"series.maps.1.pickTeam": {
-			"type": "string",
+			"type": "select",
 			"section": "Series: Map 1",
 			"label": "Team that picked Map 1"
 		},
@@ -54,7 +54,7 @@
 		},
 
 		"series.maps.2.pickTeam": {
-			"type": "string",
+			"type": "select",
 			"section": "Series: Map 2",
 			"label": "Team that picked Map 2"
 		},
@@ -84,7 +84,7 @@
 		},
 
 		"series.maps.3.pickTeam": {
-			"type": "string",
+			"type": "select",
 			"section": "Series: Map 3",
 			"label": "Team that picked Map 3"
 		},
@@ -114,7 +114,7 @@
 		},
 
 		"series.maps.4.pickTeam": {
-			"type": "string",
+			"type": "select",
 			"section": "Series: Map 4",
 			"label": "Team that picked Map 4"
 		},
@@ -144,7 +144,7 @@
 		},
 
 		"series.maps.5.pickTeam": {
-			"type": "string",
+			"type": "select",
 			"section": "Series: Map 5",
 			"label": "Team that picked Map 5"
 		},

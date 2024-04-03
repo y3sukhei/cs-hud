@@ -60,7 +60,7 @@
 		<div v-if="option.type == 'array'">
 			
 			<div class="cameraButtons" style="display: grid; grid-template-columns: auto auto auto; margin-left: 100px;">
-				<button @click="getPlayers" class="green" >Get Players</button>	
+				<button @click="getPlayers" class="green" >Get Players & Teams</button>	
 				<button @click="resetOptions(option.key)" class="green">Reset Values</button>	
 				<!-- <button @click="closeConnection" class="green">Close Connection</button>	 -->
 			</div>
@@ -93,12 +93,18 @@
 			></textarea>
 
 			<input
-				v-else-if="option.type !=='array'"
+				v-else-if="option.type !=='array' && option.type !== 'select'"
 				:type="option.inputType"
 				:id="option.key"
 				:placeholder="option.fallback"
 				v-model="optionValues[option.key]"
 			>
+			<select v-if="option.type == 'select'" class="select" v-model="optionValues[option.key]" @change="" >
+				<option v-for="team in teams" :value="team.name" >
+					{{team.side}}.      {{ team.name }}         
+				</option>
+			</select>
+			
 
 			<button v-if="option.type === 'color'" class="reset" @click.prevent="resetValue(option.key)">
 				Reset to default
