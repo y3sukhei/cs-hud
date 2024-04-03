@@ -2,13 +2,17 @@
   <div
     v-if="isRoundWinnerPanelActive"
     :class="['top-bar-team-panel-wrapper', 'round-winner-wrapper', positionClass, colorClass]"
-    style="border-radius: 10px; background-color: rgba(0, 0, 0, 0.7)"
+    style="
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.8);
+      margin-top: 5px;
+    "
     pad="2"
   >
     <div
       :class="['top-bar-team-panel', 'round-winner', positionClass, colorClass]"
     >
-      <div class="inner">wins the round</div>
+      <div class="inner" style="font-weight: bolder">wins the round</div>
     </div>
   </div>
 </Transition>

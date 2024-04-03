@@ -1,7 +1,8 @@
 .score {
   display: flex;
-  font-size: var(--top-bar-score-font-size);
+  font-size: xx-large;
   font-weight: 700;
+  justify-content: center;
 }
 /* 
 .score.--left::before,

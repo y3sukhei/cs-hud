@@ -2,7 +2,11 @@
   <div
     v-if="isTimeoutPanelActive"
     :class="['top-bar-team-panel-wrapper', 'timeout-wrapper', positionClass, colorClass]"
-    style="border-radius: 10px; background-color: rgba(0, 0, 0, 0.7)"
+    style="
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      margin-top: 5px;
+    "
     pad="2"
   >
     <div :class="['top-bar-team-panel', 'timeout', positionClass]">

@@ -18,10 +18,9 @@
 img.logo {
   display: block;
   max-height: calc(100% - var(--top-bar-team-logo-vertical-spacing) * 2);
-  background-color: black;
-  border-radius: 100%;
   height: 60px;
   width: 60px;
+  object-fit: contain;
 }
 
 img.logo.--left {
