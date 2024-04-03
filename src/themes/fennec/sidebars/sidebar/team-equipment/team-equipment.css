@@ -75,6 +75,7 @@
   height: 0.6rem;
   aspect-ratio: 1;
   border: 0.2rem solid var(--white);
+  border-radius: 100%;
   margin: 0.3rem;
 }
 
