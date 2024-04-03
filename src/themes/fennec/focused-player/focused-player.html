@@ -1,7 +1,5 @@
 <Transition mode="out-in">
-  <div
-    v-if="isActive "
-    :class="['focused-player', { '--has-overlay-bottom': !! overlayBottomImageUrl }]"
+  <div :class="['focused-player', { '--has-overlay-bottom': !! overlayBottomImageUrl }]"
   >
     <div
       v-for="(playerCamera, i) in playerCameras"
@@ -9,8 +7,7 @@
       :id="`p${playerCamera.slot}`"
     >
       <iframe
-        v-if="playerCamera.url"
-        :src="playerCamera.url"
+        :src="`${playerCamera.url}?controls=0`"
         scrolling="no"
         class="camera"
         allow="autoplay"
@@ -19,7 +16,7 @@
       >
       </iframe>
     </div>
-    <FocusedPlayerNameAndStats />
+    <FocusedPlayerNameAndStats v-if="isActive "/>
   </div>
 
   <div v-else-if="$round.isFreezetime" class="freezetime-placeholder"></div>

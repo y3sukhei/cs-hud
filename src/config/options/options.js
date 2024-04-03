@@ -8,19 +8,7 @@ export default {
 	
 
 	data() {
-		return {
-			options : [
-				{ text: 'Slot 1', value: 1, disabled: false },
-				{ text: 'Slot 2', value: 2, disabled: false },
-				{ text: 'Slot 3', value: 3, disabled: false },
-				{ text: 'Slot 4', value: 4, disabled: false },
-				{ text: 'Slot 5', value: 5, disabled: false },
-				{ text: 'Slot 6', value: 6, disabled: false },
-				{ text: 'Slot 7', value: 7, disabled: false },
-				{ text: 'Slot 8', value: 8, disabled: false },
-				{ text: 'Slot 9', value: 9, disabled: false },
-				{ text: 'Slot 10', value: 10, disabled: false },
-			  ],  
+		return {  
 			initialTheme: null,
 			optionValues: {},
 			sections: [],
@@ -38,11 +26,6 @@ export default {
 	},
 
 	methods: {
-		// closeConnection() {
-
-		// 	connectToWebsocket("close");
-		
-		// },
 		getPlayers() {
 			this.players = players;
 			
@@ -126,10 +109,22 @@ export default {
 				return this.save()
 			}
 		},
+		checkDuplicates(){
+			var valueArr = this.optionValues.playerCameras.map((item)=> { return item.slot });
+
+				return valueArr.some((item, idx)=> { 
+    				return valueArr.indexOf(item) != idx 
+			});
+		},
+		
 		async save() {
 			
 			if (this.optionValues.playerCameras.filter((o)=> o.slot !== null).length < 10) {
-				alert("all slots must be filled!!!")
+				alert("all slots must be filled!!!");
+			}
+			
+			else if(this.checkDuplicates()) {
+				alert("duplicate!!!");
 			}
 
 			else {
@@ -143,8 +138,8 @@ export default {
 					window.location.reload()
 				}
 				// close connection after get players
-				
 				connectToWebsocket("close");
+				alert("Success");
 			}
 
 		},

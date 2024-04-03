@@ -4,46 +4,16 @@
       "type": "array",
       "section": "player cameras",
       "fallback": [
-        {
-          "slot": null,
-          "url": "http://10.22.224.103:8889/mystream1/?controls=1"
-        },
-        {
-          "slot": null,
-          "url": "http://10.22.224.103:8889/mystream2/?controls=1"
-        },
-        {
-          "slot": null,
-          "url": "http://10.22.224.103:8889/mystream3/?controls=1"
-        },
-        {
-          "slot": null,
-          "url": "http://10.22.224.103:8889/mystream4/?controls=1"
-        },
-        {
-          "slot": null,
-          "url": "http://10.22.224.103:8889/mystream5/?controls=1"
-        },
-        {
-          "slot": null,
-          "url": "http://10.22.224.75:8889/mystream6/?controls=1"
-        },
-        {
-          "slot": null,
-          "url": "http://10.22.224.48:8889/mystream7/?controls=1"
-        },
-        {
-          "slot": null,
-          "url": "http://10.22.224.73:8889/mystream8/?controls=1"
-        },
-        {
-          "slot": null,
-          "url": "http://10.22.224.74:8889/mystream9/?controls=1"
-        },
-        {
-          "slot": null,
-          "url": "http://10.22.224.180:8889/mystream10/?controls=1"
-        }
+        { "slot": null, "url": "http://10.22.224.254:8889/mystream1" },
+        { "slot": null, "url": "http://10.22.224.106:8889/mystream2" },
+        { "slot": null, "url": "http://10.22.224.71:8889/mystream3" },
+        { "slot": null, "url": "http://10.22.224.95:8889/mystream4" },
+        { "slot": null, "url": "http://10.22.224.28:8889/mystream5" },
+        { "slot": null, "url": "http://10.22.224.75:8889/mystream6" },
+        { "slot": null, "url": "http://10.22.224.48:8889/mystream7" },
+        { "slot": null, "url": "http://10.22.224.73:8889/mystream8" },
+        { "slot": null, "url": "http://10.22.224.74:8889/mystream9" },
+        { "slot": null, "url": "http://10.22.224.142:8889/mystream10" }
       ]
     },
     "preferences.isCsgo": {
