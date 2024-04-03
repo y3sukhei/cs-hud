@@ -1,15 +1,12 @@
 <div :class="['player-wrapper', positionClass]">
   <div :class="['player', positionClass]">
     <HealthBar :player="player" :position="position" />
-
     <DeadIcon :player="player" :position="position" />
-
     <Health :player="player" :position="position" />
     <ObserverSlot :player="player" :position="position" />
     <Name :player="player" :position="position" />
     <RoundKills :player="player" :position="position" />
     <Primary :player="player" :position="position" />
-
     <Equipment :player="player" :position="position" />
     <Money :player="player" :position="position" />
     <RoundMoneySpent :player="player" :position="position" />

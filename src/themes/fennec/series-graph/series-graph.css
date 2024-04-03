@@ -3,7 +3,7 @@
   left: var(--viewport-margin-left);
   right: var(--viewport-margin-right);
   bottom: var(--viewport-margin-bottom);
-
+  border-radius: 10px;
   filter: var(--filter-drop-shadow);
   overflow: hidden;
 }

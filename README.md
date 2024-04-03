@@ -1,10 +1,13 @@
 # cs-hud
-A Free and Customizable Spectator HUD for Your Counter-Strike 2 (and CS:GO) Streams.
 
+A Free and Customizable Spectator HUD for Your Counter-Strike 2 (and CS:GO) Streams.
+t
 ![](assets/cs2-hud-screenshot-1080.png)
 
 ## Getting Started
+
 The easiest way is to use the pre-packaged binaries, but other options will be available in the future.
+
 <!-- TODO write, then link to more in-depth guides for running via yarn, docker -->
 
 1. Download [`cs-hud-win.exe`](https://github.com/drweissbrot/cs-hud/releases/latest/download/cs-hud-win.exe) if you're on Windows, or [`cs-hud-linux`](https://github.com/drweissbrot/cs-hud/releases/latest/download/cs-hud-linux) if you're on Linux. You can find more details on the [Releases tab](https://github.com/drweissbrot/cs-hud/releases/latest).
@@ -21,6 +24,7 @@ There are also [some console commands you may want to use](docs/cvars.md).
 Depending on how you actually want to use the HUD, you've now got two options:
 
 ### OBS Browser Source
+
 This is a good choice if you're fine with not seeing the HUD on top of the game yourself, or you can't or don't want to run the game in Fullscreen Windowed.
 It'll likely work similarly in alternatives to OBS.
 
@@ -29,6 +33,7 @@ It'll likely work similarly in alternatives to OBS.
 1. Find a match to spectate in CS, and the Browser source should show the HUD. (The Browser source will not show anything when you're not spectating a match.)
 
 ### Fullscreen Windowed
+
 Alternatively, you can use a separate executable to overlay the HUD on top of CS.
 
 1. Download [`cs-hud-win32-x64.zip`](https://github.com/drweissbrot/cs-hud/releases/latest/download/cs-hud-win32-x64.zip) on Windows, or [`cs-hud-linux-x64.tar.gz`](https://github.com/drweissbrot/cs-hud/releases/latest/download/cs-hud-linux-x64.tar.gz) on Linux. Extract all files.
@@ -37,19 +42,21 @@ Alternatively, you can use a separate executable to overlay the HUD on top of CS
 1. Find a match to spectate in CS. The HUD should now overlay your screen.
 1. If the HUD is on the wrong monitor, select it in the taskbar, and press `Win`+`Shift`+Arrow keys to move it to the correct monitor.
 
-
 ## FAQ
 
 ### Does this work with CS2?
+
 Yes.  
 Everything should work with both CS:GO and CS2. If you spot anything weird, [please open an issue.](https://github.com/drweissbrot/cs-hud/issues)
 
 ### Can I use this for my event?
+
 Yes.  
 Attribution is not required, but if possible, please include a link to this GitHub project somewhere.
 I'd also appreciate if you let me know that you're using it by sending me [a quick email](mailto:cs-hud@drweissbrot.net) (or in whatever way you can get ahold of me).
 
 ### Why would I use this?
+
 Counter-Strike's in-game spectator HUD isn't designed for video.
 In a stream you can't, for example, just press Tab when you want to know how many kills someone has.
 Since CS2 it doesn't even show player names!  
@@ -59,6 +66,7 @@ Why would you use this HUD specificially? It's pretty easy to use, easy to exten
 (Please do note that this is a passion project, so if you're a big TO that needs support SLAs, you might want to look elsewhere :D)
 
 ### How do I change the colors/font/X?
+
 For simple visual changes like colors and fonts, open the HUD config page at http://localhost:31982/config and scroll down to `Style Overrides`:
 
 To change a color, select the color you want to use, then press `Save` and `Force HUD Refresh`.
@@ -77,11 +85,12 @@ Note that changes to the scale factor are only applied after refreshing the HUD.
 If you want to change something else, [have a look at the docs](docs/theming.md).
 
 ### I need help!
+
 Please [have a look at the docs folder](https://github.com/drweissbrot/cs-hud/tree/master/docs) first.
 If nothing in there helps you, [please open an issue.](https://github.com/drweissbrot/cs-hud/issues)
 
-
 ## Credits
+
 Special Thanks to [readtldr.gg](https://readtldr.gg) for providing [Simple Radar](https://readtldr.gg/simpleradar), the clean and readable minimaps included in this project.
 ([You can also use them in the game, they're pretty great!](https://readtldr.gg/simpleradar))
 
