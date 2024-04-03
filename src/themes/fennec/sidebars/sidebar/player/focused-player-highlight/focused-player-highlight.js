@@ -1,6 +1,3 @@
 export default {
-	props: [
-		'position',
-		'player',
-	],
-}
+  props: ["position", "player"],
+};
