@@ -27,8 +27,7 @@
 
 	<h2>
 		Cameras
-	</h2>
-	
+	</h2>	
 </div>
 
 
@@ -45,11 +44,6 @@
 		</p>
 	</header>
 
-	
-	
-
-	
-
 	<div v-for="option of section.options" class="input-group">
 		<label :for="option.key" v-if="option.key !== 'playerCameras'">
 			<template v-for="(segment, i) of option.keySegments">
@@ -58,6 +52,7 @@
 		</label>
 		
 		<div v-if="option.type == 'array'">
+			
 			
 			<div class="cameraButtons" style="display: grid; grid-template-columns: auto auto auto; margin-left: 100px;">
 				<button @click="getPlayers" class="green" >Get Players & Teams</button>	
@@ -68,12 +63,16 @@
 			<div style="display: grid; grid-template-columns: 10fr 10fr 10fr 10fr 10fr; margin-left: 100px; grid-gap:30px">
 				<div v-for="(camera, index) in optionValues[option.key]" >
 					<div>Selected Slot: {{ camera.slot }}</div>
-					
-					<select class="select" v-model="camera.slot" @change="onSelectChange" >
-						<option v-for="player in players" :value="player.observerSlot" :disabled="player.disabled">
-							{{player.observerSlot}}.      {{ player.name }}         
-						</option>
-					</select>
+					<div style="display: flex;">
+						<select v-if="isActivePlayers" class="select" v-model="camera.slot" @change="onSelectChange" >
+							<option v-for="player in players" :value="player.observerSlot" :disabled="player.disabled">
+								{{player.observerSlot}}.      {{ player.name }}         
+							</option>
+						</select>
+						<div class="cameraButtons">
+						<button @click="showHide(index)" :disabled="camera.slot == 99 ? true : false" class="green">{{camera.slot == 99 ? "Hidden" : "Hide"}}</button>	
+						</div>
+					</div>
 				
 				<div>Camera: {{ index+1 }}</div>
 				<div>URL: {{ camera.url }}</div>
@@ -99,7 +98,10 @@
 				:placeholder="option.fallback"
 				v-model="optionValues[option.key]"
 			>
-			<select v-if="option.type == 'select'" class="select" v-model="optionValues[option.key]" @change="" >
+			<select v-if="option.type == 'select'" class="select" v-model="optionValues[option.key]" @change="">
+				<option :value=" ">
+					none
+				</option>
 				<option v-for="team in teams" :value="team.name" >
 					{{team.side}}.      {{ team.name }}         
 				</option>

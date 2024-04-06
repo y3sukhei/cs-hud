@@ -11,23 +11,23 @@
         padding: 0 40px 0 40px;
       "
     >
-      <img
+      <!-- <img
         :class="['logo', positionClass, { '--active': logoImageLoaded }]"
         :src="`/hud/img/team-logos/Nitromethane.png`"
         alt=""
         @error="logoImageLoaded = false"
         @loaded="logoImageLoaded = true"
         @loading="logoImageLoaded = false"
-      />
+      /> -->
 
-      <!-- <img
+      <img
         :class="['logo', positionClass, { '--active': logoImageLoaded }]"
-        :src="`/hud/img/team-logos/${team.name}.png`"
+        :src="`/hud/img/team-logos/${team.name.replace(/ /g,'_')}.png`"
         alt=""
         @error="logoImageLoaded = false"
         @loaded="logoImageLoaded = true"
         @loading="logoImageLoaded = false"
-      /> -->
+      />
       <p style="font-weight: bold; font-size: larger">{{ team.name }}</p>
     </div>
   </div>

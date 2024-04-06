@@ -17,9 +17,9 @@ export default {
   },
 
   beforeMount() {
-    console.log("before:", this.$opts["playerCameras"]);
+    // console.log("before:", this.$opts["playerCameras"]);
     this.playerCameras = this.$opts["playerCameras"];
-    console.log("player Cameras:", this.playerCameras);
+    // console.log("player Cameras:", this.playerCameras);
   },
 
   mounted() {
@@ -55,6 +55,7 @@ export default {
         }
         element.style.display = "block";
       }
+      else this.hidePanel();
     },
     hidePanel() {
       var elements = document.getElementsByClassName("iframe");

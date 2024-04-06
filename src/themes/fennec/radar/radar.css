@@ -1,7 +1,15 @@
 .radar {
   position: relative;
+  width: 350px;
+  margin:10px;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+.title{
+  position: relative;
   margin: 10px;
-  width: 300px;
+  width: 350px;
+  height: 40px;
   aspect-ratio: 1;
   overflow: hidden;
 }

@@ -13,7 +13,8 @@ export default {
 			optionValues: {},
 			sections: [],
 			players: null,
-			teams:null
+			teams: null,
+			isActivePlayers:false
 		}
 	},
 	mounted() {
@@ -25,13 +26,30 @@ export default {
 	beforeUnmount() {
 		document.removeEventListener('keydown', this.onKeydown)
 	},
-
 	methods: {
+
+		showHide(index) {
+			
+		
+			if (index !== 99) {
+
+				this.optionValues['playerCameras'][index].slot = 99;
+				
+				// console.log("after hide : ", this.optionValues)
+			}
+		
+		},
 		getPlayers() {
+			this.isActivePlayers = false;
+			
 			this.players = players;
 			this.teams = teams;
-			console.log("players :", this.players);
-			console.log("teams :", this.teams);
+
+			setTimeout(()=>{
+				this.isActivePlayers = true;
+			},1000)
+			// console.log("players :", this.players);
+			// console.log("teams :", this.teams);
 		},
 		onSelectChange(e) {
 			const index = e.target.selectedIndex;
@@ -82,8 +100,8 @@ export default {
 			this.optionValues = optionValues
 			this.sections = Object.values(sections)
 
-			console.log("this. option values :", this.optionValues);
-			console.log("this. sections :", this.sections);
+			// console.log("this. option values :", this.optionValues);
+			// console.log("this. sections :", this.sections);
 
 		},
 
@@ -125,11 +143,9 @@ export default {
 			if (this.optionValues.playerCameras.filter((o)=> o.slot !== null).length < 10) {
 				alert("all slots must be filled!!!");
 			}
-			
-			else if(this.checkDuplicates()) {
-				alert("duplicate!!!");
-			}
-
+			// else if(this.checkDuplicates()) {
+			// 	alert("duplicate!!!");
+			// }
 			else {
 				await fetch('/config/options', {
 					method: 'PUT',
@@ -141,7 +157,8 @@ export default {
 					window.location.reload()
 				}
 				// close connection after get players
-				connectToWebsocket("close");
+				// connectToWebsocket("close");
+				
 				alert("Success");
 			}
 

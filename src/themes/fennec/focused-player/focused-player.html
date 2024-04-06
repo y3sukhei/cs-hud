@@ -2,7 +2,7 @@
   <div :class="['focused-player', { '--has-overlay-bottom': !! overlayBottomImageUrl }]"
   >
     <div
-      v-for="(playerCamera, i) in playerCameras"
+      v-for="(playerCamera, i) in $opts['playerCameras']"
       class="iframe"
       :id="`p${playerCamera.slot}`"
     >
