@@ -7,7 +7,14 @@ export default {
     positionClass,
 
     iconUrl() {
-      return `/hud/img/weapons/${this.player.primary.unprefixedName}.svg`;
+      const activeWeapon = this.player.weapons.find(
+        (weapon) => weapon.isActive
+      );
+      const defaultWeapon = this.player.weapons[0];
+
+      return `/hud/img/weapons/${
+        activeWeapon?.unprefixedName || defaultWeapon?.unprefixedName
+      }.svg`;
     },
   },
 };

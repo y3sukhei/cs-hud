@@ -3,10 +3,6 @@
     v-if="player.isAlive && player.primary"
     :class="['primary', positionClass]"
   >
-    <img
-      :src="iconUrl"
-      alt=""
-      :class="{ '--active': player.primary.isActive }"
-    />
+    <img :src="iconUrl" alt="" class="--active" />
   </div>
 </Transition>

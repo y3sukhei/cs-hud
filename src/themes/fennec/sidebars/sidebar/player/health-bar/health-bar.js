@@ -21,6 +21,13 @@ export default {
     colorClass() {
       return teamColorClass(this.player.team);
     },
+    shadow() {
+      if (this.player.isFocused) {
+        return "none";
+      } else {
+        return "200px 10px 400px 200px rgba(0,0,0,0.3) inset";
+      }
+    },
   },
 
   methods: {

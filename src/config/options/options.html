@@ -1,128 +1,149 @@
 <div class="buttons">
-	<a href="/licenses" target="_blank">
-		Open Licenses
-	</a>
+  <a href="/licenses" target="_blank"> Open Licenses </a>
 
-	<a href="/hud" target="_blank">
-		Open HUD
-	</a>
+  <a href="/hud" target="_blank"> Open HUD </a>
 
-	<a href="/radar" target="_blank">
-		Open Radar
-	</a>
+  <a href="/radar" target="_blank"> Open Radar </a>
 
-	<button class="save" @click.prevent="save">
-		Save
-	</button>
+  <button class="save" @click.prevent="save">Save</button>
 
-	<button class="force-hud-refresh" @click.prevent="forceHudRefresh">
-		Force HUD Refresh
-	</button>
+  <button class="force-hud-refresh" @click.prevent="forceHudRefresh">
+    Force HUD Refresh
+  </button>
 </div>
 
 <Update />
 
-
-<div style="margin: 50px;">
-
-	<h2>
-		Cameras
-	</h2>	
+<div style="margin: 50px">
+  <h2>Cameras</h2>
 </div>
 
-
-
-
-
 <section v-for="section of sections" :id="section.name">
-	
-	<header>
-		<h2>{{ section.name }}</h2>
+  <header>
+    <h2>{{ section.name }}</h2>
 
-		<p v-if="section.description">
-			{{ section.description }}
-		</p>
-	</header>
+    <p v-if="section.description">{{ section.description }}</p>
+  </header>
 
-	<div v-for="option of section.options" class="input-group">
-		<label :for="option.key" v-if="option.key !== 'playerCameras'">
-			<template v-for="(segment, i) of option.keySegments">
-				{{ segment }}{{ i === option.keySegments.length - 1 ? '' : '.' }}<wbr>
-			</template>
-		</label>
-		
-		<div v-if="option.type == 'array'">
-			
-			
-			<div class="cameraButtons" style="display: grid; grid-template-columns: auto auto auto; margin-left: 100px;">
-				<button @click="getPlayers" class="green" >Get Players & Teams</button>	
-				<button @click="resetOptions(option.key)" class="green">Reset Values</button>	
-				<!-- <button @click="closeConnection" class="green">Close Connection</button>	 -->
-			</div>
-			
-			<div style="display: grid; grid-template-columns: 10fr 10fr 10fr 10fr 10fr; margin-left: 100px; grid-gap:30px">
-				<div v-for="(camera, index) in optionValues[option.key]" >
-					<div>Selected Slot: {{ camera.slot }}</div>
-					<div style="display: flex;">
-						<select v-if="isActivePlayers" class="select" v-model="camera.slot" @change="onSelectChange" >
-							<option v-for="player in players" :value="player.observerSlot" :disabled="player.disabled">
-								{{player.observerSlot}}.      {{ player.name }}         
-							</option>
-						</select>
-						<div class="cameraButtons">
-						<button @click="showHide(index)" :disabled="camera.slot == 99 ? true : false" class="green">{{camera.slot == 99 ? "Hidden" : "Hide"}}</button>	
-						</div>
-					</div>
-				
-				<div>Camera: {{ index+1 }}</div>
-				<div>URL: {{ camera.url }}</div>
-				<iframe :src="`${camera.url}?controls=1`" scrolling="no" allow="autoplay" width="320" height="240" >
-				</iframe>	
-			</div>
-		</div>
-		
-	</div>
+  <div v-for="option of section.options" class="input-group">
+    <label :for="option.key" v-if="option.key !== 'playerCameras'">
+      <template v-for="(segment, i) of option.keySegments">
+        {{ segment }}{{ i === option.keySegments.length - 1 ? '' : '.' }}<wbr />
+      </template>
+    </label>
 
-		<div class="input">
-			<textarea
-				v-if="option.inputType === 'textarea'"
-				:id="option.key"
-				:placeholder="option.fallback"
-				v-model="optionValues[option.key]"
-			></textarea>
+    <div v-if="option.type == 'array'">
+      <div
+        class="cameraButtons"
+        style="
+          display: grid;
+          grid-template-columns: auto auto auto;
+          margin-left: 100px;
+        "
+      >
+        <button @click="getPlayers" class="green">Get Players & Teams</button>
+        <button @click="resetOptions(option.key)" class="green">
+          Reset Values
+        </button>
+        <!-- <button @click="closeConnection" class="green">Close Connection</button>	 -->
+      </div>
 
-			<input
-				v-else-if="option.type !=='array' && option.type !== 'select'"
-				:type="option.inputType"
-				:id="option.key"
-				:placeholder="option.fallback"
-				v-model="optionValues[option.key]"
-			>
-			<select v-if="option.type == 'select'" class="select" v-model="optionValues[option.key]" @change="">
-				<option :value=" ">
-					none
-				</option>
-				<option v-for="team in teams" :value="team.name" >
-					{{team.side}}.      {{ team.name }}         
-				</option>
-			</select>
-			
+      <div
+        style="
+          display: grid;
+          grid-template-columns: 10fr 10fr 10fr 10fr 10fr;
+          margin-left: 100px;
+          grid-gap: 30px;
+        "
+      >
+        <div v-for="(camera, index) in optionValues[option.key]">
+          <div>Selected Slot: {{ camera.slot }}</div>
+          <div style="display: flex">
+            <select
+              v-if="isActivePlayers"
+              class="select"
+              v-model="camera.slot"
+              @change="onSelectChange"
+            >
+              <option
+                v-for="player in players"
+                :value="player.observerSlot"
+                :disabled="player.disabled"
+              >
+                {{player.observerSlot}}. {{ player.name }}
+              </option>
+            </select>
+            <div class="cameraButtons">
+              <button
+                @click="showHide(index)"
+                :disabled="camera.slot == 99 ? true : false"
+                class="green"
+              >
+                {{camera.slot == 99 ? "Hidden" : "Hide"}}
+              </button>
+            </div>
+          </div>
 
-			<button v-if="option.type === 'color'" class="reset" @click.prevent="resetValue(option.key)">
-				Reset to default
-			</button>
-		</div>
+          <div>Camera: {{ index+1 }}</div>
+          <div>URL: {{ camera.url }}</div>
+          <iframe
+            :src="`${camera.url}?controls=1`"
+            scrolling="no"
+            allow="autoplay"
+            width="320"
+            height="240"
+          >
+          </iframe>
+        </div>
+      </div>
+    </div>
 
-		<div class="default-and-label">
-			<p v-if="option.fallback && option.type !== 'array'" class="default">
-				Default:
-				<code v-if="option.type === 'boolean'">{{ option.fallback ? 'yes' : 'no' }}</code>
-				<code v-else>{{ option.fallback }}</code>
-			</p>
+    <div class="input">
+      <textarea
+        v-if="option.inputType === 'textarea'"
+        :id="option.key"
+        :placeholder="option.fallback"
+        v-model="optionValues[option.key]"
+      ></textarea>
 
-			<p v-if="option.label" class="label">
-				{{ option.label }}
-			</p>
-		</div>
-	</div>
+      <input
+        v-else-if="option.type !=='array' && option.type !== 'select'"
+        :type="option.inputType"
+        :id="option.key"
+        :placeholder="option.fallback"
+        v-model="optionValues[option.key]"
+      />
+      <select
+        v-if="option.type == 'select'"
+        class="select"
+        v-model="optionValues[option.key]"
+        @change=""
+      >
+        <option :value=" ">none</option>
+        <option v-for="team in teams" :value="team.name">
+          {{team.side}}. {{ team.name }}
+        </option>
+      </select>
+
+      <button
+        v-if="option.type === 'color'"
+        class="reset"
+        @click.prevent="resetValue(option.key)"
+      >
+        Reset to default
+      </button>
+    </div>
+
+    <div class="default-and-label">
+      <p v-if="option.fallback && option.type !== 'array'" class="default">
+        Default:
+        <code v-if="option.type === 'boolean'"
+          >{{ option.fallback ? 'yes' : 'no' }}</code
+        >
+        <code v-else>{{ option.fallback }}</code>
+      </p>
+
+      <p v-if="option.label" class="label">{{ option.label }}</p>
+    </div>
+  </div>
 </section>

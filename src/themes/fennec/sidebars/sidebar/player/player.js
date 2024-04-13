@@ -48,5 +48,16 @@ export default {
     isBombActive() {
       return !!this.player?.bomb?.isActive;
     },
+    playerScale() {
+      if (this.player.isAlive) {
+        return "none";
+      } else {
+        if (this.positionClass != "--left") {
+          return "scaleX(0.9) translateX(1.5rem)";
+        } else {
+          return "scaleX(0.9) translateX(-1.5rem)";
+        }
+      }
+    },
   },
 };

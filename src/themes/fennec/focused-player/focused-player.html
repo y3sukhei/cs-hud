@@ -1,5 +1,6 @@
 <Transition mode="out-in">
-  <div :class="['focused-player', { '--has-overlay-bottom': !! overlayBottomImageUrl }]"
+  <div
+    :class="['focused-player', { '--has-overlay-bottom': !! overlayBottomImageUrl }]"
   >
     <div
       v-for="(playerCamera, i) in $opts['playerCameras']"
@@ -16,7 +17,7 @@
       >
       </iframe>
     </div>
-    <FocusedPlayerNameAndStats v-if="isActive "/>
+    <FocusedPlayerNameAndStats v-if="isActive " />
   </div>
 
   <div v-else-if="$round.isFreezetime" class="freezetime-placeholder"></div>

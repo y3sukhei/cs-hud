@@ -5,7 +5,13 @@
 .health.--red img {
   filter: url(#focused-player-health-red-from-white-filter);
 }
-
+.health {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
 img {
   height: var(--focused-player-icon-height);
 }
