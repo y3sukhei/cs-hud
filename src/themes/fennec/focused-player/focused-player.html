@@ -7,15 +7,21 @@
       class="iframe"
       :id="`p${playerCamera.slot}`"
     >
-      <iframe
-        :src="`${playerCamera.url}?controls=0`"
+      <!-- <iframe
+        :src="`${playerCamera.url}`"
         scrolling="no"
         class="camera"
         allow="autoplay"
         width="320"
         height="240"
       >
-      </iframe>
+      </iframe> -->
+    
+      <img
+      class="camera"
+      :src="playerCamera.url"
+      alt=""
+    />
     </div>
     <FocusedPlayerNameAndStats v-if="isActive " />
   </div>

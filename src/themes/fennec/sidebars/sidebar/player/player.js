@@ -53,9 +53,9 @@ export default {
         return "none";
       } else {
         if (this.positionClass != "--left") {
-          return "scaleX(0.9) translateX(1.5rem)";
+          return "scaleX(0.9) translateX(2.4rem)";
         } else {
-          return "scaleX(0.9) translateX(-1.5rem)";
+          return "scaleX(0.9) translateX(-2.4rem)";
         }
       }
     },

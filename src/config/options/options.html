@@ -86,14 +86,27 @@
 
           <div>Camera: {{ index+1 }}</div>
           <div>URL: {{ camera.url }}</div>
-          <iframe
+          <select
+          v-if="isActivePlayers"
+          class="select"
+          v-model="camera.url"
+          @change=""
+        >
+          <option
+            v-for="playerImg in playerImages"
+            :value="playerImg.url"
+          >
+            {{playerImg.url}}
+          </option>
+        </select>
+          <!-- <iframe
             :src="`${camera.url}?controls=1`"
             scrolling="no"
             allow="autoplay"
             width="320"
             height="240"
           >
-          </iframe>
+          </iframe> -->
         </div>
       </div>
     </div>

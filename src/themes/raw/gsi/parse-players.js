@@ -5,6 +5,23 @@ import { getPlayerNameOverrides } from '/hud/gsi/helpers/player-name-overrides.j
 import { getHiddenPlayers } from '/hud/gsi/helpers/hidden-players.js'
 
 // a CS2 update mid-November 2023 changed observer slots to be `0` for the player with the hotkey `1`, `1` for hotkey `2`, ..., `9` for hotkey `0`
+
+const usernames = {
+	'AccuracyTG--':'AccuracyTG',
+	'-XUOR':'ROUX',
+	'-johan7':"Efire",
+	'ariucleee':"ariucle",
+	'ANN1H1LAT1ON':"ANNIHILATION",
+	'deimo622':"Zesta",
+	'doku--':"dobu",
+	'MiQ_-':"MiQ",
+	'kkabal':"kabal",
+	'-910':'910',
+	'Senzu-':'Senzu',
+	'Mzinho-H':"mzinho",
+	'bLitzzzzz1':'Blitz',
+	'Oochko30':'Baagii'
+}
 const getObserverSlot = (player, steam64Id) => {
 	const rawSlot = player.observer_slot ?? additionalState.lastKnownPlayerObserverSlot?.[steam64Id]
 	if (options['preferences.isCsgo']) return rawSlot
@@ -52,6 +69,8 @@ const parsePlayerWeapons = (player) => Object.values(player.weapons).flatMap((we
 	return 0
 })
 
+
+
 // TODO if we want an `isBot` or similar: bots appear to use steam ids, starting at 76561197960265729 and counting up from there (these are real steam64Ids though, belonging to real Steam users)
 export const parsePlayers = () => {
 	const playerNameOverrides = getPlayerNameOverrides()
@@ -61,8 +80,9 @@ export const parsePlayers = () => {
 
 	for (const [steam64Id, player] of Object.entries(gsiState.allplayers)) {
 		if (hiddenPlayerSteam64Ids.has(steam64Id)) continue
+		// console.log(usernames[player.name]);
+		const name = playerNameOverrides.get(steam64Id) || usernames[player.name] ? usernames[player.name] : player.name
 
-		const name = playerNameOverrides.get(steam64Id) || player.name
 		if (hiddenPlayerNames.has(name)) continue
 
 		const observerSlot = getObserverSlot(player, steam64Id)

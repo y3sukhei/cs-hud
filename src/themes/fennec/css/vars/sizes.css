@@ -68,27 +68,31 @@
 
   /* Sidebar Players */
   --sidebar-player-width: calc(
-    var(--sidebar-deaths-width) + var(--sidebar-grenades-half-width) +
-      var(--sidebar-health-width) + var(--sidebar-kills-width) +
-      var(--sidebar-money-width) + var(--sidebar-observer-slot-width) +
-      var(--sidebar-primary-and-secondary-width) +
-      var(--sidebar-round-kills-width) + var(--sidebar-start-and-end-width) * 2 +
-      var(--sidebar-taser-width)
-  );
+		var(--sidebar-deaths-width)
+		+ var(--sidebar-grenades-half-width)
+		+ var(--sidebar-health-width)
+		+ var(--sidebar-kills-width)
+		+ var(--sidebar-money-width)
+		+ var(--sidebar-observer-slot-width)
+		+ var(--sidebar-primary-and-secondary-width)
+		+ var(--sidebar-round-kills-width)
+		+ var(--sidebar-start-and-end-width) * 2
+		+ var(--sidebar-taser-width)
+	);
 
-  --sidebar-player-focused-player-highlight-width: 0.5rem;
-  --sidebar-player-additional-stats-width: 14rem;
-  --sidebar-player-row-height: 3rem;
-  --sidebar-player-weapon-padding: 0.5rem;
+	--sidebar-player-focused-player-highlight-width: 0.5rem;
+	--sidebar-player-additional-stats-width: 14rem;
+	--sidebar-player-row-height: 3rem;
+	--sidebar-player-weapon-padding: 0.5rem;
 
-  --sidebar-start-and-end-width: 0.5rem;
-  --sidebar-health-width: 5rem;
-  --sidebar-observer-slot-width: 1.5rem;
-  --sidebar-money-width: 7rem;
-  --sidebar-kills-width: 4.5rem;
-  --sidebar-deaths-width: var(--sidebar-kills-width);
-  --sidebar-taser-width: 3rem;
-  --sidebar-grenades-half-width: 6rem;
-  --sidebar-round-kills-width: 3rem;
-  --sidebar-primary-and-secondary-width: 3rem;
+	--sidebar-start-and-end-width: 0.5rem;
+	--sidebar-health-width: 5rem;
+	--sidebar-observer-slot-width: 1.5rem;
+	--sidebar-money-width: 7rem;
+	--sidebar-kills-width: 4.5rem;
+	--sidebar-deaths-width: var(--sidebar-kills-width);
+	--sidebar-taser-width: 3rem;
+	--sidebar-grenades-half-width: 6rem;
+	--sidebar-round-kills-width: 3rem;
+	--sidebar-primary-and-secondary-width: 8rem;
 }

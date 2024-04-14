@@ -21,5 +21,6 @@ export default {
       if (this.player?.primary?.isActive) return this.player.primary;
       if (this.player?.secondary?.isActive) return this.player.secondary;
     },
+    personName(){}
   },
 };

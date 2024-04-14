@@ -14,7 +14,24 @@ export default {
 			sections: [],
 			players: null,
 			teams: null,
-			isActivePlayers:false
+			isActivePlayers:false,
+			playerImages:[
+				{id:1, url :"/hud/img/player-img/Accuracy.png"},
+				{id:2, url :"/hud/img/player-img/Ariucle.png"},
+				{id:3, url :"/hud/img/player-img/EFIRE.png"},
+				{id:4, url :"/hud/img/player-img/ROUX.png"},
+				{id:5, url :"/hud/img/player-img/Wonderzce.png"},
+				{id:6, url :"/hud/img/player-img/Annihilation.png"},
+				{id:7, url :"/hud/img/player-img/Dobu.png"},
+				{id:8, url :"/hud/img/player-img/Kabal.png"},
+				{id:9, url :"/hud/img/player-img/MIQ.png"},
+				{id:10, url :"/hud/img/player-img/Zesta.png"},
+				{id:11, url :"/hud/img/player-img/910.png"},
+				{id:12, url :"/hud/img/player-img/Blitz.png"},
+				{id:13, url :"/hud/img/player-img/Mzinho.png"},
+				{id:14, url :"/hud/img/player-img/Senzu.png"},
+				{id:15, url :"/hud/img/player-img/Techno.png"},
+			]
 		}
 	},
 	mounted() {

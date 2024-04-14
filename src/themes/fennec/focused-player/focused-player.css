@@ -6,7 +6,7 @@
   display: flex;
   gap: 10px;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   filter: var(--filter-drop-shadow);
 }
 
@@ -22,8 +22,17 @@
 }
 .camera {
   border-radius: 20px;
+  /* border-bottom-right-radius: 0; */
   border: 0;
-  height: 150px;
-  width: 200px;
+  width: 130px;
+  aspect-ratio: 300/389;
   box-shadow: 10px;
+  object-fit: contain;
+}
+img.logo {
+  display: block;
+  max-height: calc(100% - var(--top-bar-team-logo-vertical-spacing) * 2);
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
 }

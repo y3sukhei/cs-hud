@@ -1,5 +1,5 @@
 .round-kills {
-  grid-area: secondary;
+  grid-area: round-kills;
   display: flex;
   align-items: center;
 }

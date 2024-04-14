@@ -5,7 +5,7 @@
 			"section": "player cameras",
 			"fallback":
 			[
-				{ "slot":99,"url":"http://10.22.224.43:8889/mystream1" },
+				{ "slot":99,"url":"/hud/img/player-img/accuracyTG.png" },
 				{ "slot":99,"url":"http://10.22.224.81:8889/mystream2" },
 				{ "slot":99,"url":"http://10.22.224.254:8889/mystream3" },
 				{ "slot":99,"url":"http://10.22.224.71:8889/mystream4" },
