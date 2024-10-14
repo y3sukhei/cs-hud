@@ -10,7 +10,6 @@
     "series-name series-name series-name"
     "team-left center team-right";
   align-items: start;
-
   filter: var(--filter-drop-shadow);
   text-align: center;
 }

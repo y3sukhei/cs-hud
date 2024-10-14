@@ -5,14 +5,17 @@
 
 .name {
   height: var(--top-bar-row-height);
+  background-color: white;
 }
 
 .name.--ct {
-  color: var(--counter-terrorists-fill);
+  /* color: var(--counter-terrorists-fill); */
+  color: #333333;
 }
 
 .name.--t {
-  color: var(--terrorists-fill);
+  /* color: var(--terrorists-fill); */
+  color: #333333;
 }
 
 img.logo {
@@ -25,9 +28,11 @@ img.logo {
 
 img.logo.--left {
   padding-right: var(--top-bar-team-logo-horizontal-spacing);
+  color: var(--counter-terrorists-fill);
 }
 
 img.logo.--right {
   order: 1;
   padding-left: var(--top-bar-team-logo-horizontal-spacing);
+  color: var(--terrorists-fill);
 }
