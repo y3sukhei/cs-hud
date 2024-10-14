@@ -61,11 +61,13 @@ export default {
 			
 			this.players = players;
 			this.teams = teams;
-
 			setTimeout(()=>{
 				this.isActivePlayers = true;
 			},1000)
-			// console.log("players :", this.players);
+			console.log("players :", this.players);
+			console.log("teams: ",this.teams);
+			
+
 			// console.log("teams :", this.teams);
 		},
 		onSelectChange(e) {

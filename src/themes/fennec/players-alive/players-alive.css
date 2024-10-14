@@ -2,7 +2,7 @@
   position: fixed;
   top: var(--viewport-margin-top);
   right: var(--viewport-margin-right);
-  border-radius: 5px;
+  border-radius: 0px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
@@ -23,7 +23,7 @@
 }
 
 .team {
-  border-radius: 5px;
+  border-radius: 0px;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -17,7 +17,7 @@
 
 .team-equipment {
   display: flex;
-  border-radius: 10px;
+  border-radius: 0px;
   align-items: center;
   justify-content: space-between;
   margin-bottom: var(--sidebar-vertical-spacing);
@@ -31,7 +31,7 @@
 }
 
 .team-equipment.--ct {
-  background: var(--counter-terrorists-fill-60);
+  background: var(--counter-terrorists-fill-100);
 }
 
 .team-equipment.--t {

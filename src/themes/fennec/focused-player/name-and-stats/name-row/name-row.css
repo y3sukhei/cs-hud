@@ -2,8 +2,8 @@
   grid-area: name-row;
   padding: 0 2.5rem;
   display: flex;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
   align-items: center;
   justify-content: space-between;
   background: var(--black-50);
@@ -13,11 +13,11 @@
 }
 
 .name-row.--ct {
-  background: var(--counter-terrorists-fill-60);
+  background: var(--counter-terrorists-fill-100);
 }
 
 .name-row.--t {
-  background: var(--terrorists-fill-60);
+  background: var(--terrorists-fill-100);
 }
 .inner {
   display: flex;

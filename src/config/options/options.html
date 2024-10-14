@@ -17,6 +17,14 @@
 <div style="margin: 50px">
   <h2>Cameras</h2>
 </div>
+<div style="margin: 50px" >
+  <h2 v-if="isActivePlayers">{{teams[0].name}}: {{teams[0].players[0].steam64Id}}</h2>
+  <h2 v-if="isActivePlayers">{{teams[1].name}}: {{teams[1].players[0].steam64Id}}</h2>
+</div>
+<div style="margin: 50px" v-if="isActivePlayers">
+  
+  <h2 :id="team2Steam"></h2>
+</div>
 
 <section v-for="section of sections" :id="section.name">
   <header>

@@ -6,11 +6,11 @@
 	--red-rgb: 255, 51, 51;
 	--green-rgb: 51, 204, 77;
 
-	--counter-terrorists-fill-rgb: 29, 158, 222;
+	--counter-terrorists-fill-rgb: 0, 107, 194;
 	--counter-terrorists-border-rgb: var(--counter-terrorists-fill-rgb);
 	--counter-terrorists-text-rgb: var(--counter-terrorists-fill-rgb);
 
-	--terrorists-fill-rgb: 193, 136, 3;
+	--terrorists-fill-rgb: 255, 149, 0;
 	--terrorists-border-rgb: var(--terrorists-fill-rgb);
 	--terrorists-text-rgb: var(--terrorists-fill-rgb);
 

@@ -21,7 +21,7 @@
   align-items: center;
 }
 .camera {
-  border-radius: 20px;
+  border-radius: 0px;
   /* border-bottom-right-radius: 0; */
   border: 0;
   width: 130px;
