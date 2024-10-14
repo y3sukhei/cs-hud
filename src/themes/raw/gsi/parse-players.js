@@ -81,7 +81,7 @@ export const parsePlayers = () => {
 	for (const [steam64Id, player] of Object.entries(gsiState.allplayers)) {
 		if (hiddenPlayerSteam64Ids.has(steam64Id)) continue
 		// console.log(usernames[player.name]);
-		const name = playerNameOverrides.get(steam64Id) || usernames[player.name] ? usernames[player.name] : player.name
+		const name = playerNameOverrides.get(steam64Id) || player.name
 
 		if (hiddenPlayerNames.has(name)) continue
 

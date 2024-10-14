@@ -13,19 +13,29 @@
 </div>
 
 <Update />
+ <!-- Name Override -->
+ <div style="display: flex; margin: 50px; gap: 20px;" v-if="isActivePlayers">
+        
+  <!-- team1 -->
+   <div style="display: flex; flex-direction: column; gap: 10px;">
+      <h2>
+         {{teams[0].name}}
+        </h2>
+       <h3 v-for = "player of teams[0].players">
+         {{player.name}}  : {{player.steam64Id}}
+       </h3>
+      </div>
 
-<div style="margin: 50px">
-  <h2>Cameras</h2>
+    <!-- team2 -->
+   <div style="display: flex; flex-direction: column; gap: 10px;">
+   <h2>
+     {{teams[1].name}}
+   </h2>
+    <h3 v-for="player of teams[1].players">
+      {{player.name}}  : {{player.steam64Id}}
+    </h2>
+ </div>
 </div>
-<div style="margin: 50px" >
-  <h2 v-if="isActivePlayers">{{teams[0].name}}: {{teams[0].players[0].steam64Id}}</h2>
-  <h2 v-if="isActivePlayers">{{teams[1].name}}: {{teams[1].players[0].steam64Id}}</h2>
-</div>
-<div style="margin: 50px" v-if="isActivePlayers">
-  
-  <h2 :id="team2Steam"></h2>
-</div>
-
 <section v-for="section of sections" :id="section.name">
   <header>
     <h2>{{ section.name }}</h2>
@@ -50,13 +60,15 @@
         "
       >
         <button @click="getPlayers" class="green">Get Players & Teams</button>
-        <button @click="resetOptions(option.key)" class="green">
+        <!-- <button @click="resetOptions(option.key)" class="green">
           Reset Values
-        </button>
+        </button> -->
         <!-- <button @click="closeConnection" class="green">Close Connection</button>	 -->
       </div>
 
-      <div
+     
+
+      <!-- <div
         style="
           display: grid;
           grid-template-columns: 10fr 10fr 10fr 10fr 10fr;
@@ -106,7 +118,7 @@
           >
             {{playerImg.url}}
           </option>
-        </select>
+        </select> -->
           <!-- <iframe
             :src="`${camera.url}?controls=1`"
             scrolling="no"
@@ -115,8 +127,8 @@
             height="240"
           >
           </iframe> -->
-        </div>
-      </div>
+        <!-- </div>
+      </div> -->
     </div>
 
     <div class="input">

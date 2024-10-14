@@ -10,10 +10,12 @@
 
 .name.--ct {
   /* color: var(--counter-terrorists-fill); */
+  padding-right: 40px;
   color: #333333;
 }
 
 .name.--t {
+  padding-left: 40px;
   /* color: var(--terrorists-fill); */
   color: #333333;
 }
@@ -27,12 +29,16 @@ img.logo {
 }
 
 img.logo.--left {
-  padding-right: var(--top-bar-team-logo-horizontal-spacing);
+  background-color: var(--counter-terrorists-fill);
+  height: 100%;
+  padding: var(--top-bar-team-logo-horizontal-spacing);
   color: var(--counter-terrorists-fill);
 }
 
 img.logo.--right {
+  background-color: var(--terrorists-fill);
+  height: 100%;
   order: 1;
-  padding-left: var(--top-bar-team-logo-horizontal-spacing);
+  padding: var(--top-bar-team-logo-horizontal-spacing);
   color: var(--terrorists-fill);
 }
