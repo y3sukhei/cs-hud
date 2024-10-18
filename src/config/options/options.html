@@ -68,7 +68,7 @@
 
      
 
-      <!-- <div
+      <div
         style="
           display: grid;
           grid-template-columns: 10fr 10fr 10fr 10fr 10fr;
@@ -77,7 +77,7 @@
         "
       >
         <div v-for="(camera, index) in optionValues[option.key]">
-          <div>Selected Slot: {{ camera.slot }}</div>
+          <div>{{ index+1 }} Selected Slot: {{ camera.slot }}</div>
           <div style="display: flex">
             <select
               v-if="isActivePlayers"
@@ -104,8 +104,8 @@
             </div>
           </div>
 
-          <div>Camera: {{ index+1 }}</div>
-          <div>URL: {{ camera.url }}</div>
+          <!-- <div>Camera: {{ index+1 }}</div>
+          <div>URL: {{ camera.url }}</div> -->
           <select
           v-if="isActivePlayers"
           class="select"
@@ -118,7 +118,7 @@
           >
             {{playerImg.url}}
           </option>
-        </select> -->
+        </select>
           <!-- <iframe
             :src="`${camera.url}?controls=1`"
             scrolling="no"
@@ -127,8 +127,8 @@
             height="240"
           >
           </iframe> -->
-        <!-- </div>
-      </div> -->
+         </div>
+      </div> 
     </div>
 
     <div class="input">
